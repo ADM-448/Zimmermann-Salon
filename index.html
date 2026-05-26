@@ -1,0 +1,2160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zimmermann Salon — Mega Hair de Alto Padrão em Maringá</title>
+  <meta name="description"
+    content="Zimmermann Salon: referência em Mega Hair Premium em Maringá-PR. Técnicas Queratina, Ponto Americano e Fita Adesiva aplicadas por especialistas. Avaliação gratuita.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ============================================================
+   TOKENS
+============================================================ */
+    :root {
+      --ink: #080707;
+      --ink-2: #111010;
+      --ink-3: #1C1B1B;
+      --surface: #161515;
+      --foot: #050404;
+      --gold: #BFA07A;
+      --gold-hi: #D9C4A8;
+      --gold-lo: rgba(191, 160, 122, .18);
+      --gold-bd: rgba(191, 160, 122, .28);
+      --white: #FFFFFF;
+      --off: #E8E2DB;
+      --muted: #7A7572;
+      --faint: #3D3B3A;
+      --r: 0.35s cubic-bezier(.4, 0, .2, 1);
+      --max: 1180px;
+    }
+
+    /* ============================================================
+   RESET
+============================================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--ink);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 3px;
+    }
+
+    /* ============================================================
+   UTILITIES
+============================================================ */
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 52px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--gold);
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      flex: 0 0 24px;
+      height: 1px;
+      background: var(--gold-bd);
+    }
+
+    .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .rule.cx {
+      margin: 16px auto 0;
+    }
+
+    /* ============================================================
+   BUTTONS
+============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 1px;
+      transition: var(--r);
+      cursor: pointer;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+      padding: 15px 36px;
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold-hi);
+      border-color: var(--gold-hi);
+    }
+
+    .btn-wire {
+      background: transparent;
+      color: var(--gold);
+      border-color: var(--gold-bd);
+      padding: 13px 30px;
+    }
+
+    .btn-wire:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    .btn-card {
+      display: block;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-bd);
+      padding: 12px 16px;
+      transition: var(--r);
+    }
+
+    .btn-card:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    .wa-ico {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+   HEADER
+============================================================ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      transition: var(--r);
+    }
+
+    header.solid {
+      background: rgba(5, 4, 4, .96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--gold-lo);
+    }
+
+    /* Nav: 3 colunas — espaço | logo centro | links direita */
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 76px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-self: center;
+    }
+
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(191, 160, 122, .35));
+      transition: filter var(--r);
+    }
+
+    .brand:hover .brand-logo {
+      filter: drop-shadow(0 0 14px rgba(191, 160, 122, .65));
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-list a {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      color: rgba(220, 215, 210, .65);
+      transition: color .25s;
+    }
+
+    .nav-list a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta-lnk {
+      color: #000 !important;
+      background: var(--gold) !important;
+      padding: 10px 20px;
+      letter-spacing: 1.5px !important;
+      font-weight: 700 !important;
+      border-radius: 1px;
+    }
+
+    .nav-cta-lnk:hover {
+      background: var(--white) !important;
+      color: #000 !important;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .burger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--gold);
+      transition: var(--r);
+    }
+
+    /* ============================================================
+   HERO
+============================================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 76px;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    /* Subtle radial glow behind logo */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 8%;
+      transform: translateY(-50%);
+      width: clamp(340px, 42vw, 640px);
+      height: clamp(340px, 42vw, 640px);
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(191, 160, 122, .13) 0%, rgba(191, 160, 122, .04) 50%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-inner {
+      max-width: 520px;
+    }
+
+    .hero-logo-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-img {
+      width: clamp(260px, 36vw, 520px);
+      height: auto;
+      object-fit: contain;
+      animation: logoFloat 6s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 40px rgba(191, 160, 122, .30)) drop-shadow(0 0 80px rgba(191, 160, 122, .14));
+      will-change: transform;
+    }
+
+    @keyframes logoFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(1deg);
+      }
+    }
+
+    .hero-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-label-line {
+      flex: 0 0 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-label-text {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 400;
+      line-height: 1.08;
+      margin-bottom: 22px;
+      letter-spacing: -.5px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-hi);
+    }
+
+    .hero-body {
+      font-size: 15px;
+      color: rgba(210, 205, 200, .78);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 38px;
+      max-width: 430px;
+    }
+
+    .hero-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: .5px;
+    }
+
+    /* scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-cue span {
+      font-size: 8.5px;
+      text-transform: uppercase;
+      letter-spacing: 3.5px;
+      color: var(--muted);
+    }
+
+    .scroll-cue i {
+      display: block;
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: drip 2.2s ease-in-out infinite;
+    }
+
+    @keyframes drip {
+
+      0%,
+      100% {
+        opacity: .25;
+        transform: scaleY(.4);
+        transform-origin: top;
+      }
+
+      55% {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+      }
+    }
+
+    /* ============================================================
+   PILLARS BAR
+============================================================ */
+    .pillars {
+      border-top: 1px solid var(--gold-bd);
+      border-bottom: 1px solid var(--gold-bd);
+      background: linear-gradient(90deg, var(--ink-2) 0%, #131212 50%, var(--ink-2) 100%);
+    }
+
+    .pillars-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .pillar {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(191, 160, 122, .07);
+      position: relative;
+      overflow: hidden;
+      transition: background var(--r);
+    }
+
+    .pillar:last-child {
+      border-right: none;
+    }
+
+    .pillar::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+      transition: transform .4s ease;
+    }
+
+    .pillar:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .pillar:hover {
+      background: rgba(191, 160, 122, .04);
+    }
+
+    .pillar-sym {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--gold);
+      display: block;
+      opacity: .7;
+    }
+
+    .pillar-name {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3.5px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .pillar-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+   SECTION SHELL
+============================================================ */
+    .sec {
+      padding: clamp(64px, 9vw, 108px) 0;
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-top: 12px;
+    }
+
+    .sec-title strong {
+      font-weight: 700;
+      color: var(--gold-hi);
+    }
+
+    .sec-title em {
+      font-style: italic;
+    }
+
+    /* ============================================================
+   TECHNIQUES
+============================================================ */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--gold-lo);
+      border-radius: 2px;
+      overflow: hidden;
+      background: var(--gold-lo);
+    }
+
+    .tech-card {
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      transition: background var(--r);
+      position: relative;
+    }
+
+    .tech-card:hover {
+      background: #191818;
+    }
+
+    .tech-img-box {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .tech-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform .7s ease, filter .5s ease;
+      filter: grayscale(12%) brightness(.88);
+    }
+
+    .tech-card:hover .tech-img-box img {
+      transform: scale(1.07);
+      filter: grayscale(0%) brightness(.95);
+    }
+
+    .tech-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 7, 7, .88) 0%, rgba(8, 7, 7, .08) 55%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .tech-num {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      font-weight: 400;
+      color: rgba(191, 160, 122, .12);
+      line-height: 1;
+      transition: color var(--r);
+    }
+
+    .tech-card:hover .tech-num {
+      color: rgba(191, 160, 122, .28);
+    }
+
+    .tech-pip {
+      position: absolute;
+      bottom: 18px;
+      left: 22px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .tech-pip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .tech-pip-lbl {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .tech-body {
+      padding: 28px 26px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tech-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .tech-role {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .tech-hr {
+      width: 28px;
+      height: 1px;
+      background: var(--gold-bd);
+      margin-bottom: 18px;
+    }
+
+    .tech-list {
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .tech-list li {
+      font-size: 12.5px;
+      color: rgba(200, 195, 190, .82);
+      margin-bottom: 10px;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .tech-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ============================================================
+   CAROUSEL — Results
+============================================================ */
+    .carousel-section {
+      background: var(--ink-2);
+      padding: clamp(56px, 8vw, 96px) 0;
+    }
+
+    .carousel-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      user-select: none;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.4, 0, .2, 1);
+      will-change: transform;
+    }
+
+    .carousel-slide {
+      flex: 0 0 calc(100%/3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .6s ease, filter .4s ease;
+      filter: grayscale(10%);
+    }
+
+    .carousel-slide:hover img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    .slide-cap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 22px 22px 20px;
+      background: linear-gradient(to top, rgba(8, 7, 7, .85) 0%, transparent 100%);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+
+    .carousel-slide:hover .slide-cap {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-cap-tag {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .slide-cap-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--white);
+      margin-top: 3px;
+    }
+
+    /* nav buttons */
+    .car-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(8, 7, 7, .6);
+      border: 1px solid var(--gold-bd);
+      color: var(--gold);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--r);
+      backdrop-filter: blur(8px);
+    }
+
+    .car-btn:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+
+    .car-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .car-prev {
+      left: 16px;
+    }
+
+    .car-next {
+      right: 16px;
+    }
+
+    /* dots */
+    .car-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 22px;
+    }
+
+    .car-dot {
+      width: 24px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--faint);
+      cursor: pointer;
+      transition: background .3s, width .3s;
+    }
+
+    .car-dot.active {
+      background: var(--gold);
+      width: 40px;
+    }
+
+    /* ============================================================
+   ABOUT
+============================================================ */
+    .about-section {
+      background: var(--ink);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-text .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .about-h {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .about-h em {
+      font-style: italic;
+      color: var(--gold-hi);
+    }
+
+    .about-p {
+      font-size: 13.5px;
+      color: rgba(205, 200, 195, .72);
+      line-height: 1.95;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+
+    .feat-list {
+      margin: 28px 0 34px;
+    }
+
+    .feat-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      font-size: 13px;
+      color: var(--off);
+    }
+
+    .feat-row:last-child {
+      border-bottom: none;
+    }
+
+    .feat-ico {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-bd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+
+    .about-media {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 300px 140px;
+      gap: 8px;
+    }
+
+    .med-img {
+      overflow: hidden;
+      border-radius: 1px;
+    }
+
+    .med-img:first-child {
+      grid-row: 1/3;
+    }
+
+    .med-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform .6s ease;
+    }
+
+    .med-img:hover img {
+      transform: scale(1.04);
+    }
+
+    .stat-box {
+      background: var(--surface);
+      border: 1px solid var(--gold-lo);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .stat-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .stat-l {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+   TESTIMONIALS
+============================================================ */
+    .test-section {
+      background: var(--ink-2);
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 52px;
+    }
+
+    .test-card {
+      background: var(--ink);
+      border: 1px solid rgba(255, 255, 255, .04);
+      padding: 34px 28px;
+      position: relative;
+      transition: var(--r);
+    }
+
+    .test-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 0;
+      background: var(--gold);
+      transition: height .45s ease;
+    }
+
+    .test-card:hover::before {
+      height: 100%;
+    }
+
+    .test-card:hover {
+      border-color: var(--gold-lo);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
+    }
+
+    .test-stars {
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .test-q {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 400;
+      color: rgba(191, 160, 122, .14);
+      line-height: .6;
+      margin-bottom: 6px;
+    }
+
+    .test-body {
+      font-size: 13.5px;
+      color: rgba(205, 200, 195, .78);
+      line-height: 1.82;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 22px;
+    }
+
+    .test-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .test-srv {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    /* ============================================================
+   CTA FINAL
+============================================================ */
+    .cta-sec {
+      position: relative;
+      padding: 100px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(5, 4, 4, .93), rgba(5, 4, 4, .88)), url('img/img1.jpeg') no-repeat center 30% / cover;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-h {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 14px 0 14px;
+    }
+
+    .cta-h em {
+      font-style: italic;
+      color: var(--gold-hi);
+    }
+
+    .cta-p {
+      max-width: 480px;
+      margin: 0 auto 40px;
+      font-size: 14.5px;
+      color: rgba(205, 200, 195, .7);
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+   LOCATION BAR
+============================================================ */
+    .loc-bar {
+      background: var(--ink-3);
+      border-top: 1px solid var(--gold-bd);
+      border-bottom: 1px solid var(--gold-bd);
+      padding: 24px 0;
+    }
+
+    .loc-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+      flex-wrap: wrap;
+    }
+
+    .loc-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .loc-ico {
+      color: var(--gold);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .loc-item strong {
+      display: block;
+      font-size: 12px;
+      color: var(--off);
+      font-weight: 500;
+    }
+
+    .loc-div {
+      width: 1px;
+      height: 26px;
+      background: var(--gold-lo);
+    }
+
+    /* ============================================================
+   FOOTER
+============================================================ */
+    footer {
+      background: var(--foot);
+      padding: 64px 0 28px;
+      border-top: 1px solid rgba(255, 255, 255, .02);
+    }
+
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
+      gap: 44px;
+      margin-bottom: 52px;
+    }
+
+    .foot-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .foot-brand-sub {
+      font-size: 8px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 4px;
+    }
+
+    .foot-brand-p {
+      margin-top: 16px;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.82;
+      font-weight: 300;
+    }
+
+    .foot-brand-tagline {
+      margin-top: 18px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: rgba(191, 160, 122, .4);
+    }
+
+    .foot-col h4 {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 3.5px;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .foot-links li {
+      margin-bottom: 11px;
+    }
+
+    .foot-links a {
+      font-size: 12.5px;
+      color: var(--muted);
+      transition: color .25s;
+    }
+
+    .foot-links a:hover,
+    .foot-links li:not(:has(a)) {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .foot-links a:hover {
+      color: var(--gold);
+    }
+
+    .foot-contact li {
+      display: flex;
+      gap: 9px;
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-bottom: 13px;
+      line-height: 1.6;
+    }
+
+    .fco {
+      color: var(--gold);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .foot-bot {
+      border-top: 1px solid rgba(255, 255, 255, .04);
+      padding-top: 26px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--faint);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .foot-bot a {
+      color: var(--gold);
+    }
+
+    /* ============================================================
+   WA FLOAT
+============================================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 999;
+      background: #25D366;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, .4);
+      transition: var(--r);
+    }
+
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, .52);
+    }
+
+    .wa-float svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    .wa-float::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, .38);
+      animation: waPing 2s ease-out infinite;
+    }
+
+    @keyframes waPing {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.55);
+        opacity: 0;
+      }
+    }
+
+    /* ============================================================
+   FADE ANIMATION
+============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .d1 {
+      transition-delay: .08s;
+    }
+
+    .d2 {
+      transition-delay: .16s;
+    }
+
+    .d3 {
+      transition-delay: .24s;
+    }
+
+    .d4 {
+      transition-delay: .32s;
+    }
+
+    /* ============================================================
+   RESPONSIVE
+============================================================ */
+    @media(max-width:1024px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-media {
+        grid-template-rows: 320px 160px;
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .carousel-slide {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media(max-width:768px) {
+      .nav-list {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .nav-left {
+        order: -1;
+      }
+
+      .nav-right {
+        display: none;
+      }
+
+      .nav-list.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: rgba(5, 4, 4, .97);
+        padding: 30px 24px 38px;
+        gap: 26px;
+        border-bottom: 1px solid var(--gold-bd);
+        backdrop-filter: blur(18px);
+      }
+
+      .brand-logo {
+        height: 40px;
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .hero-logo-side {
+        display: none;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .pillars-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pillar {
+        border-right: none;
+        border-bottom: 1px solid rgba(191, 160, 122, .07);
+      }
+
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .loc-row {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+      }
+
+      .loc-div {
+        display: none;
+      }
+
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .foot-bot {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .carousel-slide {
+        flex: 0 0 100%;
+      }
+
+      .carousel-slide img {
+        height: 340px;
+      }
+    }
+
+    @media(max-width:480px) {
+      .pillars-row {
+        grid-template-columns: 1fr;
+      }
+
+      .about-media {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .about-media .med-img:first-child {
+        grid-row: auto;
+      }
+
+      .about-media .med-img img,
+      .about-media .stat-box {
+        min-height: 200px;
+      }
+
+      .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/5544997739398?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20minha%20avaliação%20de%20Mega%20Hair."
+    target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- HEADER -->
+  <header id="hdr">
+    <div class="wrap nav">
+      <!-- left slot (burger mobile) -->
+      <div class="nav-left">
+        <button class="burger" id="brg" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- right: links -->
+      <div class="nav-right">
+        <ul class="nav-list" id="nl">
+          <li><a href="#tecnicas">Técnicas</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre">O Salão</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="index4.html" style="color:var(--gold-hi); border-bottom: 1px solid var(--gold-bd); padding-bottom: 2px;">Ver Versão 2</a></li>
+          <li><a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação."
+              target="_blank" rel="noopener" class="nav-cta-lnk">Agendar</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-layout">
+      <!-- COPY -->
+      <div class="hero-inner">
+        <div class="hero-label reveal">
+          <span class="hero-label-line"></span>
+          <span class="hero-label-text">Mega Hair Premium · Maringá-PR</span>
+        </div>
+        <h1 class="hero-title reveal d1">
+          Sua versão<br>
+          <em>mais sublime.</em>
+        </h1>
+        <p class="hero-body reveal d2">
+          Três técnicas exclusivas. Um resultado tão natural que só você e nós sabemos o segredo.
+          Atendimento personalizado, com hora marcada.
+        </p>
+        <div class="hero-row reveal d3">
+          <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20de%20Mega%20Hair."
+            target="_blank" rel="noopener" class="btn btn-gold" id="hero-cta">
+            <svg class="wa-ico" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Avaliação Gratuita
+          </a>
+          <a href="#tecnicas" class="btn btn-wire">Ver Técnicas</a>
+        </div>
+        <p class="hero-note reveal d4">✦ Atendimento exclusivo · com hora marcada · Maringá-PR</p>
+      </div>
+      <!-- LOGO VISUAL -->
+      <div class="hero-logo-side reveal d2">
+        <img src="img/Logo.PNG" alt="Zimmermann Salon Logo" class="hero-logo-img">
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Rolar</span><i></i></div>
+  </section>
+
+  <!-- PILLARS -->
+  <div class="pillars">
+    <div class="wrap">
+      <div class="pillars-row">
+        <div class="pillar reveal"><span class="pillar-sym">◈</span>
+          <p class="pillar-name">Naturalidade</p>
+          <p class="pillar-desc">Resultado imperceptível — como se sempre fosse seu.</p>
+        </div>
+        <div class="pillar reveal d1"><span class="pillar-sym">◇</span>
+          <p class="pillar-name">Segurança</p>
+          <p class="pillar-desc">Produtos premium e protocolo de biossegurança certificado.</p>
+        </div>
+        <div class="pillar reveal d2"><span class="pillar-sym">✦</span>
+          <p class="pillar-name">Personalização</p>
+          <p class="pillar-desc">Cada fio planejado para a sua identidade e rotina.</p>
+        </div>
+        <div class="pillar reveal d3"><span class="pillar-sym">✧</span>
+          <p class="pillar-name">Experiência Premium</p>
+          <p class="pillar-desc">Ambiente reservado, sofisticado e pensado para você.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNIQUES -->
+  <section class="sec" id="tecnicas" style="background:var(--ink);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Nossas Especialidades</span>
+        <h2 class="sec-title">Três técnicas. <em>Uma escolha perfeita</em><br>para o <strong>seu perfil.</strong></h2>
+        <div class="rule cx"></div>
+      </div>
+      <div class="tech-grid reveal d1">
+
+        <!-- 01 -->
+        <div class="tech-card" id="card-queratina">
+          <div class="tech-img-box">
+            <img src="./img/img4.jpeg" alt="Mega Hair Queratina - Zimmermann Salon Maringá" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">01</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Alta Fixação</span></div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Cabelo com Luz Própria</h3>
+            <p class="tech-role">Fusão Segura · Alta Durabilidade</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li>Fixação duradoura e imperceptível ao toque</li>
+              <li>Resultado extremamente natural — ninguém percebe</li>
+              <li>Ideal para volume, comprimento e preenchimento</li>
+              <li>Alta resistência à lavagem e ao calor diário</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20em%20Queratina."
+              target="_blank" rel="noopener" class="btn-card" id="cta-queratina">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="tech-card" id="card-zimmermann">
+          <div class="tech-img-box">
+            <img src="./img/img5.jpeg" alt="Técnica Ponto Americano Zimmermann - Mega Hair Maringá" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">02</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Autoral</span></div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Ponto Americano</h3>
+            <p class="tech-role">Técnica Zimmermann · Máximo Conforto</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li>Técnica autoral desenvolvida pelo próprio Zimmermann</li>
+              <li>Tecimento fino, cheio e com leveza incomparável</li>
+              <li>Máximo conforto e liberdade nos movimentos</li>
+              <li>Perfeita para volume com praticidade total</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Ponto%20Americano%20Zimmermann."
+              target="_blank" rel="noopener" class="btn-card" id="cta-zimmermann">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="tech-card" id="card-fita">
+          <div class="tech-img-box">
+            <img src="./img/img7.jpeg" alt="Mega Hair Fita Adesiva - Morena Iluminada Zimmermann Salon" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">03</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Caimento Natural</span>
+            </div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Mega Hair</h3>
+            <p class="tech-role">Movimento Real · Resultado Imperceptível</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li>Mechas estratégicas para profundidade, brilho e naturalidade</li>
+              <li>Efeito rico, sofisticado e nada marcado</li>
+              <li>Fixação segura com movimento natural no dia a dia</li>
+              <li>Conforto e durabilidade — até 70cm de poder e autoestima</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20em%20Fita%20Adesiva."
+              target="_blank" rel="noopener" class="btn-card" id="cta-fita">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAROUSEL — RESULTS -->
+  <section class="carousel-section" id="resultados">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Transformações Reais</span>
+        <h2 class="sec-title"><em>Cada resultado</em> é <strong>único.</strong></h2>
+        <div class="rule cx"></div>
+      </div>
+    </div>
+
+    <div class="wrap" style="position:relative;">
+      <div class="carousel-wrap" id="carWrap">
+        <div class="carousel-track" id="carTrack">
+          <div class="carousel-slide">
+            <img src="img/img1.jpeg" alt="Mega Hair loiro ondulado - resultado natural Zimmermann Salon" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Loiro Champagne</p>
+              <p class="slide-cap-name">Volume & Comprimento</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/img2.jpeg" alt="Mega Hair loiro platinado - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Loiro Platinado</p>
+              <p class="slide-cap-name">Estilo & Elegância</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/img3.jpeg" alt="Mega Hair morena com luzes - técnica natural Zimmermann" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Morena Iluminada</p>
+              <p class="slide-cap-name">Naturalidade Total</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/img4.jpeg" alt="Mega Hair loiro solar - Zimmermann Salon resultado premium" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Loiro Solar</p>
+              <p class="slide-cap-name">Frescor & Leveza</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/img5.jpeg" alt="Mega Hair ruivo intenso - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Ruivo Intenso</p>
+              <p class="slide-cap-name">Personalidade & Brilho</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="car-btn car-next" id="carNext" aria-label="Próxima">
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="wrap">
+      <div class="car-dots" id="carDots"></div>
+      <div style="text-align:center;margin-top:36px;">
+        <a href="https://wa.me/5544997739398?text=Olá,%20vi%20os%20resultados%20no%20site%20e%20gostaria%20de%20ver%20mais%20fotos%20e%20agendar%20minha%20avaliação."
+          target="_blank" rel="noopener" class="btn btn-wire reveal" id="gallery-cta">
+          <svg class="wa-ico" viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Solicitar Portfólio Completo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec about-section" id="sobre">
+    <div class="wrap">
+      <div class="about-layout">
+        <div class="about-text reveal">
+          <span class="eyebrow" style="margin-bottom:22px;">Sobre o Salão</span>
+          <h2 class="about-h">Especialistas em <em>transformar</em><br>identidade visual.</h2>
+          <div class="rule" style="margin:16px 0 20px;"></div>
+          <p class="about-p">Mais do que um salão, somos um ateliê de beleza. Com uma abordagem moderna e exclusiva em
+            Maringá, cada cliente passa por uma consultoria completa antes de qualquer procedimento.</p>
+          <p class="about-p">Nosso fundador — especialista em Alongamentos de Alta Linha e Visagismo — lidera uma equipe
+            cujo único foco é encontrar o volume, a cor e o caimento ideais para a sua identidade.</p>
+          <div class="feat-list">
+            <div class="feat-row">
+              <div class="feat-ico">✓</div>Especialistas dedicados exclusivamente a Mega Hair Premium
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico">✓</div>Consultoria de Visagismo inclusa em cada atendimento
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico">✓</div>Ambiente climatizado, sofisticado e completamente reservado
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico">✓</div>Biossegurança certificada · Produtos de linha profissional
+            </div>
+          </div>
+          <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20e%20agendar%20minha%20avaliação."
+            target="_blank" rel="noopener" class="btn btn-gold" id="about-cta">
+            <svg class="wa-ico" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Conversar com Especialista
+          </a>
+        </div>
+        <div class="about-media reveal d2">
+          <div class="med-img">
+            <img src="img/img6.jpeg" alt="Resultado Mega Hair morena iluminada - Zimmermann Salon" loading="lazy">
+          </div>
+          <div class="stat-box">
+            <span class="stat-n">15<span style="font-size:18px;opacity:.6">+</span></span>
+            <span class="stat-l">Anos de<br>Excelência</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-n">3</span>
+            <span class="stat-l">Técnicas<br>Exclusivas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec test-section" id="depoimentos">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Depoimentos</span>
+        <h2 class="sec-title">Quem viveu a <em>experiência</em><br><strong>conta por si.</strong></h2>
+        <div class="rule cx"></div>
+      </div>
+      <div class="test-grid">
+        <div class="test-card reveal d1">
+          <p class="test-stars">★★★★★</p>
+          <span class="test-q">"</span>
+          <p class="test-body">Atendimento impecável e resultado muito além do que eu esperava! Meu cabelo ficou
+            perfeito, super leve e totalmente natural. Ninguém acredita que é mega hair!</p>
+          <p class="test-name">Juliana M.</p>
+          <p class="test-srv">Técnica Ponto Americano</p>
+        </div>
+        <div class="test-card reveal d2">
+          <p class="test-stars">★★★★★</p>
+          <span class="test-q">"</span>
+          <p class="test-body">A consultoria antes do procedimento foi o diferencial. Eles entenderam exatamente o que
+            eu queria e entregaram algo ainda melhor. Não troco o Zimmermann por nada!</p>
+          <p class="test-name">Camila T.</p>
+          <p class="test-srv">Técnica Queratina</p>
+        </div>
+        <div class="test-card reveal d3">
+          <p class="test-stars">★★★★★</p>
+          <span class="test-q">"</span>
+          <p class="test-body">Ambiente sofisticado, profissionais extremamente focados no resultado. A técnica de fita
+            ficou absolutamente natural — leve, bonita e com um caimento lindo. Recomendo!</p>
+          <p class="test-name">Patrícia L.</p>
+          <p class="test-srv">Técnica Fita Adesiva</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-sec">
+    <div class="cta-inner">
+      <div class="wrap">
+        <span class="eyebrow reveal">Pronta para Transformar?</span>
+        <h2 class="cta-h reveal d1">Sua avaliação<br><em>é gratuita.</em></h2>
+        <p class="cta-p reveal d2">Descubra qual técnica foi feita para o seu perfil, rotina e o visual que você sempre
+          imaginou. Atendimento exclusivo, com hora marcada.</p>
+        <div class="cta-row reveal d3">
+          <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20de%20Mega%20Hair%20no%20Zimmermann%20Salon."
+            target="_blank" rel="noopener" class="btn btn-gold" id="cta-final-wa">
+            <svg class="wa-ico" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Agendar no WhatsApp Agora
+          </a>
+          <a href="tel:+5544997739398" class="btn btn-wire" id="cta-final-tel">(44) 99773-9398</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <div class="loc-bar">
+    <div class="wrap">
+      <div class="loc-row">
+        <div class="loc-item">
+          <span class="loc-ico">📍</span>
+          <div>
+            <strong>Rua Pombal, 346 — Sala 02 · Maringá-PR</strong>
+            Próximo ao Parque do Ingá
+          </div>
+        </div>
+        <div class="loc-div"></div>
+        <div class="loc-item">
+          <span class="loc-ico">🕐</span>
+          <div>
+            <strong>Ter–Sex: 09h às 19h · Sáb: 09h às 16h</strong>
+            Dom. e Segunda: Fechado
+          </div>
+        </div>
+        <div class="loc-div"></div>
+        <div class="loc-item">
+          <span class="loc-ico">📞</span>
+          <div>
+            <strong>(44) 99773-9398</strong>
+            WhatsApp disponível
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contato">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <p class="foot-brand-name">Zimmermann</p>
+          <p class="foot-brand-sub">Mega Hair Salon · Maringá</p>
+          <p class="foot-brand-p">Especialistas em Mega Hair Premium com técnicas exclusivas para transformar seu visual
+            com naturalidade, segurança e sofisticação.</p>
+          <p class="foot-brand-tagline">Beleza que inspira. Confiança que transforma.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Navegação</h4>
+          <ul class="foot-links">
+            <li><a href="#tecnicas">Técnicas</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#sobre">O Salão</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Horários</h4>
+          <ul class="foot-links">
+            <li>Terça a Sexta: 09h–19h</li>
+            <li>Sábado: 09h–16h</li>
+            <li>Dom. e Segunda: Fechado</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Contato</h4>
+          <ul class="foot-contact">
+            <li><span class="fco">📍</span>Rua Pombal, 346 — Sala 02 — Z3<br>Maringá-PR (Próx. Parque do Ingá)</li>
+            <li><span class="fco">📞</span><a href="tel:+5544997739398" style="color:inherit;">(44) 99773-9398</a></li>
+            <li><span class="fco">✉️</span><a href="mailto:contato@zimmermannsalon.com.br"
+                style="color:inherit;">contato@zimmermannsalon.com.br</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bot">
+        <span>© 2026 Zimmermann Salon. Todos os direitos reservados.</span>
+        <span>Desenvolvido por <a href="#">INTALENTI</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* --- Header scroll --- */
+      const hdr = document.getElementById('hdr');
+      const onScroll = () => hdr.classList.toggle('solid', window.scrollY > 50);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* --- Mobile nav --- */
+      const brg = document.getElementById('brg');
+      const nl = document.getElementById('nl');
+      brg.addEventListener('click', () => {
+        const open = nl.classList.toggle('open');
+        const ss = brg.querySelectorAll('span');
+        ss[0].style.transform = open ? 'rotate(45deg) translate(4.5px,4.5px)' : '';
+        ss[1].style.opacity = open ? '0' : '';
+        ss[2].style.transform = open ? 'rotate(-45deg) translate(4.5px,-4.5px)' : '';
+      });
+      nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        nl.classList.remove('open');
+        brg.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }));
+
+      /* --- Reveal on scroll --- */
+      const revEls = document.querySelectorAll('.reveal');
+      const revObs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+      revEls.forEach(el => revObs.observe(el));
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => setTimeout(() => el.classList.add('in'), 150 + i * 90));
+
+      /* ============================================================
+         INFINITE LOOP CAROUSEL
+         Técnica: clone do início no final e clone do final no início.
+         O índice "virtual" começa em 1 (o clone do final fica no 0).
+         Quando a transição termina e estamos num clone, pulamos
+         instantaneamente (sem transição) para o slide real equivalente.
+      ============================================================ */
+      (function initCarousel() {
+        const track = document.getElementById('carTrack');
+        const dotsEl = document.getElementById('carDots');
+        const prevBtn = document.getElementById('carPrev');
+        const nextBtn = document.getElementById('carNext');
+
+        /* --- Responsive slides per view --- */
+        const pv = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+
+        /* --- Original slides data --- */
+        const origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+        const origCount = origSlides.length; // 5
+
+        /* --- Clone leading & trailing sets --- */
+        let perView = pv();
+        let clonesBefore, clonesAfter;
+
+        function buildClones() {
+          /* remove old clones */
+          track.querySelectorAll('.carousel-slide.clone').forEach(c => c.remove());
+
+          /* clone last `perView` slides → prepend */
+          clonesBefore = [];
+          for (let i = origCount - perView; i < origCount; i++) {
+            const cl = origSlides[i].cloneNode(true);
+            cl.classList.add('clone');
+            track.insertBefore(cl, track.firstChild);
+            clonesBefore.unshift(cl);
+          }
+
+          /* clone first `perView` slides → append */
+          clonesAfter = [];
+          for (let i = 0; i < perView; i++) {
+            const cl = origSlides[i].cloneNode(true);
+            cl.classList.add('clone');
+            track.appendChild(cl);
+            clonesAfter.push(cl);
+          }
+        }
+
+        /* --- State --- */
+        /* virtualIdx is index among ALL slides (clones + originals).
+           Starts at `perView` (first real slide after leading clones). */
+        let virtualIdx = perView; // points to first real slide
+        let isTransitioning = false;
+        let autoTimer;
+
+        /* --- Set slide widths --- */
+        function setWidths() {
+          const allSlides = track.querySelectorAll('.carousel-slide');
+          allSlides.forEach(s => { s.style.flex = `0 0 calc(100% / ${perView})`; });
+        }
+
+        /* --- Jump without animation (force reflow to avoid flash) --- */
+        function jumpTo(idx) {
+          track.style.transition = 'none';
+          virtualIdx = idx;
+          track.style.transform = `translateX(-${(virtualIdx / (origCount + perView * 2)) * 100}%)`;
+          /* Force the browser to apply the above before any next transition.
+             Reading offsetWidth triggers a synchronous reflow. */
+          void track.offsetWidth;
+        }
+
+        /* --- Animate to virtual index --- */
+        function slideTo(idx) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          virtualIdx = idx;
+          track.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
+          track.style.transform = `translateX(-${(virtualIdx / (origCount + perView * 2)) * 100}%)`;
+          updateDots();
+        }
+
+        /* --- After transition: check if on a clone → jump to real --- */
+        track.addEventListener('transitionend', () => {
+          isTransitioning = false;
+          // landed on leading clones (before originals)
+          if (virtualIdx < perView) {
+            jumpTo(virtualIdx + origCount);
+          }
+          // landed on trailing clones (after originals)
+          else if (virtualIdx >= perView + origCount) {
+            jumpTo(virtualIdx - origCount);
+          }
+        });
+
+        /* --- Real index from virtual (0-based among originals) --- */
+        const realIdx = () => ((virtualIdx - perView) % origCount + origCount) % origCount;
+
+        /* --- Dots --- */
+        function buildDots() {
+          dotsEl.innerHTML = '';
+          for (let i = 0; i < origCount; i++) {
+            const d = document.createElement('button');
+            d.className = 'car-dot' + (i === realIdx() ? ' active' : '');
+            d.setAttribute('aria-label', 'Slide ' + (i + 1));
+            d.addEventListener('click', () => {
+              if (!isTransitioning) slideTo(perView + i);
+            });
+            dotsEl.appendChild(d);
+          }
+        }
+
+        function updateDots() {
+          const ri = realIdx();
+          dotsEl.querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('active', i === ri));
+        }
+
+        /* --- Controls --- */
+        prevBtn.addEventListener('click', () => { if (!isTransitioning) slideTo(virtualIdx - 1); });
+        nextBtn.addEventListener('click', () => { if (!isTransitioning) slideTo(virtualIdx + 1); });
+
+        /* --- Touch swipe --- */
+        let touchStartX = 0;
+        track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        track.addEventListener('touchend', e => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) > 44 && !isTransitioning) slideTo(dx < 0 ? virtualIdx + 1 : virtualIdx - 1);
+        });
+
+        /* --- Keyboard --- */
+        document.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft' && !isTransitioning) slideTo(virtualIdx - 1);
+          if (e.key === 'ArrowRight' && !isTransitioning) slideTo(virtualIdx + 1);
+        });
+
+        /* --- Auto-advance --- */
+        const startAuto = () => {
+          clearInterval(autoTimer);
+          autoTimer = setInterval(() => { if (!isTransitioning) slideTo(virtualIdx + 1); }, 5000);
+        };
+        const stopAuto = () => clearInterval(autoTimer);
+
+        const carWrap = track.closest('.carousel-wrap');
+        carWrap.addEventListener('mouseenter', stopAuto);
+        carWrap.addEventListener('mouseleave', startAuto);
+
+        /* --- Init & resize --- */
+        function init() {
+          perView = pv();
+          buildClones();
+          setWidths();
+          virtualIdx = perView; // reset to first real slide
+          jumpTo(perView);
+          buildDots();
+          startAuto();
+        }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(init, 200);
+        });
+
+        init();
+      })();
+
+    })();
+  </script>
+</body>
+
+</html>
