@@ -726,6 +726,116 @@
       background: var(--gold);
     }
 
+    .tech-intro-text {
+      font-size: 12.5px;
+      color: rgba(230, 225, 220, .9);
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .tech-list li strong {
+      color: var(--gold-hi);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+   HOW IT WORKS SECTION (Como funcionam as técnicas)
+============================================================ */
+    .how-section {
+      background: var(--ink-2);
+      border-top: 1px solid var(--gold-bd);
+      border-bottom: 1px solid var(--gold-bd);
+    }
+
+    .how-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .how-img-box {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--gold-bd);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    }
+
+    .how-img-box img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform .7s ease;
+    }
+
+    .how-img-box:hover img {
+      transform: scale(1.03);
+    }
+
+    .how-img-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(8, 7, 7, .88);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--gold-bd);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .how-img-badge-ico {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .how-img-badge-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .how-img-badge-sub {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    .how-p {
+      font-size: 14px;
+      color: rgba(215, 210, 205, .85);
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    .how-highlight-box {
+      background: rgba(191, 160, 122, .06);
+      border-left: 2px solid var(--gold);
+      padding: 18px 22px;
+      margin: 24px 0 32px;
+      font-size: 13.5px;
+      color: var(--gold-hi);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+
     /* ============================================================
    CAROUSEL — Results
 ============================================================ */
@@ -1087,7 +1197,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(rgba(5, 4, 4, .93), rgba(5, 4, 4, .88)), url('img/img1.jpeg') no-repeat center 30% / cover;
+      background: linear-gradient(rgba(5, 4, 4, .93), rgba(5, 4, 4, .88)), url('img/IMG_1261.JPEG') no-repeat center 30% / cover;
     }
 
     .cta-inner {
@@ -1372,6 +1482,15 @@
         gap: 48px;
       }
 
+      .how-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .how-img-box img {
+        height: 420px;
+      }
+
       .about-media {
         grid-template-rows: 320px 160px;
       }
@@ -1608,82 +1727,158 @@
   <section class="sec" id="tecnicas" style="background:var(--ink);">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">Nossas Especialidades</span>
-        <h2 class="sec-title">Técnicas. <em>Uma escolha perfeita</em><br>para o <strong>seu perfil.</strong></h2>
+        <span class="eyebrow">Nossas Técnicas de Mega Hair</span>
+        <h2 class="sec-title">Técnicas. <em>Soluções exclusivas</em><br>para o <strong>seu perfil.</strong></h2>
         <div class="rule cx"></div>
       </div>
       <div class="tech-grid reveal d1">
 
-        <!-- 01 -->
+        <!-- 01. Ponto Americano -->
+        <div class="tech-card" id="card-ponto-americano">
+          <div class="tech-img-box">
+            <img src="./img/img5.jpeg" alt="Técnica Ponto Americano - Zimmermann Salon Maringá" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">01</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Volume &
+                Comprimento</span></div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Ponto Americano</h3>
+            <p class="tech-role">Versátil · Confortável · Acabamento Impecável</p>
+            <p class="tech-intro-text">Uma técnica versátil e confortável, indicada para quem busca volume e comprimento
+              com excelente acabamento.</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li><strong>Convencional Costurado</strong> – Tela costurada de forma segura, proporcionando firmeza e um
+                resultado natural.</li>
+              <li><strong>Ponto slim (Microlink)</strong> – Tela fixada com microlinks, sem costura direta nos fios,
+                oferecendo mais leveza e praticidade na manutenção.</li>
+              <li><strong>Nó Italiano</strong> – Método de fixação da tela utilizando nós estratégicos, garantindo
+                excelente distribuição do peso e um acabamento discreto.</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Ponto%20Americano."
+              target="_blank" rel="noopener" class="btn-card" id="cta-ponto-americano">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- 02. Queratina -->
         <div class="tech-card" id="card-queratina">
           <div class="tech-img-box">
             <img src="./img/img4.jpeg" alt="Mega Hair Queratina - Zimmermann Salon Maringá" loading="lazy">
             <div class="tech-shade"></div>
-            <span class="tech-num">01</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Alta Fixação</span></div>
+            <span class="tech-num">02</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Efeito Extremamente
+                Natural</span></div>
           </div>
           <div class="tech-body">
-            <h3 class="tech-name">Cabelo com Luz Própria</h3>
-            <p class="tech-role">Fusão Segura · Alta Durabilidade</p>
+            <h3 class="tech-name">Queratina</h3>
+            <p class="tech-role">Liberdade Total · Acabamento Discreto</p>
+            <p class="tech-intro-text">Ideal para quem deseja liberdade para prender o cabelo e um efeito extremamente
+              natural.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
-              <li>Fixação duradoura e imperceptível ao toque</li>
-              <li>Resultado extremamente natural — ninguém percebe</li>
-              <li>Ideal para volume, comprimento e preenchimento</li>
-              <li>Alta resistência à lavagem e ao calor diário</li>
+              <li><strong>Microcápsulas</strong> – Mechas aplicadas com cápsulas de queratina de tamanho reduzido,
+                proporcionando conforto e naturalidade.</li>
+              <li><strong>Nanocápsulas</strong> – Cápsulas ultrafinas, praticamente imperceptíveis, indicadas para
+                cabelos finos e para quem busca máxima discrição.</li>
+              <li><strong>Fio de LED (Acabamento Frontal)</strong> – Aplicação de cápsulas extremamente delicadas na
+                região frontal, criando uma linha de crescimento natural e acabamento impecável.</li>
             </ul>
             <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20em%20Queratina."
               target="_blank" rel="noopener" class="btn-card" id="cta-queratina">Orçamento WhatsApp</a>
           </div>
         </div>
 
-        <!-- 02 -->
-        <div class="tech-card" id="card-zimmermann">
-          <div class="tech-img-box">
-            <img src="./img/img5.jpeg" alt="Técnica Ponto Americano Zimmermann - Mega Hair Maringá" loading="lazy">
-            <div class="tech-shade"></div>
-            <span class="tech-num">02</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Autoral</span></div>
-          </div>
-          <div class="tech-body">
-            <h3 class="tech-name">Ponto Americano</h3>
-            <p class="tech-role">Técnica Zimmermann · Máximo Conforto</p>
-            <div class="tech-hr"></div>
-            <ul class="tech-list">
-              <li>Técnica autoral desenvolvida pelo próprio Zimmermann</li>
-              <li>Tecimento fino, cheio e com leveza incomparável</li>
-              <li>Máximo conforto e liberdade nos movimentos</li>
-              <li>Perfeita para volume com praticidade total</li>
-            </ul>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Ponto%20Americano%20Zimmermann."
-              target="_blank" rel="noopener" class="btn-card" id="cta-zimmermann">Orçamento WhatsApp</a>
-          </div>
-        </div>
-
-        <!-- 03 -->
+        <!-- 03. Invisible (Fita Adesiva) -->
         <div class="tech-card" id="card-fita">
           <div class="tech-img-box">
-            <img src="./img/img7.jpeg" alt="Mega Hair Fita Adesiva - Morena Iluminada Zimmermann Salon" loading="lazy">
+            <img src="./img/img7.jpeg" alt="Mega Hair Invisible Fita Adesiva - Zimmermann Salon Maringá" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">03</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Caimento Natural</span>
-            </div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Praticidade &
+                Leveza</span></div>
           </div>
           <div class="tech-body">
-            <h3 class="tech-name">Mega Hair</h3>
-            <p class="tech-role">Movimento Real · Resultado Imperceptível</p>
+            <h3 class="tech-name">Invisible (Fita Adesiva)</h3>
+            <p class="tech-role">Telas Ultrafinas · Aplicação Rápida</p>
+            <p class="tech-intro-text">Técnica com telas ultrafinas de fita adesiva que ficam praticamente invisíveis
+              entre os fios.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
-              <li>Mechas estratégicas para profundidade, brilho e naturalidade</li>
-              <li>Efeito rico, sofisticado e nada marcado</li>
-              <li>Fixação segura com movimento natural no dia a dia</li>
-              <li>Conforto e durabilidade — até 70cm de poder e autoestima</li>
+              <li><strong>Aplicação rápida</strong> e prática para a sua rotina diária.</li>
+              <li><strong>Excelente conforto</strong> e leveza no uso diário.</li>
+              <li><strong>Resultado leve e natural</strong>, com ótima mobilidade dos fios.</li>
+              <li><strong>Ideal para praticidade</strong> nas manutenções periódicas.</li>
             </ul>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20em%20Fita%20Adesiva."
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20Invisible%20(Fita%20Adesiva)."
               target="_blank" rel="noopener" class="btn-card" id="cta-fita">Orçamento WhatsApp</a>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONAM AS TÉCNICAS -->
+  <section class="sec how-section" id="como-funciona">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Filosofia & Avaliação Personalizada</span>
+        <h2 class="sec-title">Como funcionam <em>nossas técnicas</em></h2>
+        <div class="rule cx"></div>
+      </div>
+
+      <div class="how-layout">
+        <!-- Visual Column (Imagem Zimmermann em Ação) -->
+        <div class="how-img-box reveal d1">
+          <img src="img/IMG_1262.JPEG" alt="Especialista Zimmermann Salon em ação aplicando Mega Hair" loading="lazy">
+          <div class="how-img-badge">
+            <div class="how-img-badge-ico">✦</div>
+            <div>
+              <p class="how-img-badge-title">Zimmermann Salon</p>
+              <p class="how-img-badge-sub">Excelência, Segurança & Cuidado Capilar</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="how-text reveal d2">
+          <p class="how-p">
+            No <strong>Zimmermann Salon</strong>, acreditamos que cada cliente merece uma solução personalizada. Por
+            isso, trabalhamos com diversas técnicas de mega hair, permitindo criar transformações que vão dos ajustes
+            mais sutis às mudanças mais expressivas.
+          </p>
+          <p class="how-p">
+            Nossos métodos possibilitam aumentar o comprimento, proporcionar mais volume, corrigir diferenças de
+            densidade, harmonizar a cor dos fios, preencher áreas com menor quantidade de cabelo e criar um resultado
+            totalmente natural, sempre respeitando as características e a saúde dos fios.
+          </p>
+
+          <div class="how-highlight-box">
+            "Durante a avaliação, analisamos cuidadosamente a estrutura capilar, o estilo de vida e os objetivos de cada
+            cliente para indicar a técnica mais adequada. Entre elas estão o <strong>Ponto Americano</strong>,
+            <strong>Ponto slim</strong>, <strong>Nó Italiano</strong>, <strong>Microcápsulas de Queratina</strong>,
+            <strong>Nanocápsulas</strong>, <strong>Fio de LED</strong> e a técnica <strong>Invisible (Fita
+              Adesiva)</strong>."
+          </div>
+
+          <p class="how-p">
+            Trabalhamos apenas com materiais de alta qualidade e métodos que proporcionam conforto, segurança,
+            durabilidade e um acabamento praticamente imperceptível. Nosso compromisso é oferecer um mega hair
+            sofisticado, leve e personalizado, para que o resultado seja tão natural que pareça fazer parte de você.
+          </p>
+
+          <div style="margin-top: 32px;">
+            <a href="https://wa.me/5544997739398?text=Olá,%20li%20sobre%20as%20técnicas%20no%20site%20e%20gostaria%20de%20agendar%20minha%20avaliação%20personalizada."
+              target="_blank" rel="noopener" class="btn btn-gold" id="how-cta">
+              <svg class="wa-ico" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Agendar Avaliação Personalizada
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1734,6 +1929,20 @@
             <div class="slide-cap">
               <p class="slide-cap-tag">Ruivo Intenso</p>
               <p class="slide-cap-name">Personalidade & Brilho</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/IMG_1262.JPEG" alt="Ateliê Zimmermann - Aplicação de Mega Hair" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Ateliê Zimmermann</p>
+              <p class="slide-cap-name">Aplicação Personalizada</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/IMG_1261.JPEG" alt="Especialista Zimmermann Salon" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Zimmermann Salon</p>
+              <p class="slide-cap-name">Alta Performance em Mega Hair</p>
             </div>
           </div>
         </div>
@@ -1803,7 +2012,8 @@
         </div>
         <div class="about-media reveal d2">
           <div class="med-img">
-            <img src="img/img6.jpeg" alt="Resultado Mega Hair morena iluminada - Zimmermann Salon" loading="lazy">
+            <img src="img/IMG_1261.JPEG" alt="Especialista Zimmermann Salon - Referência em Mega Hair Maringá"
+              loading="lazy">
           </div>
           <div class="stat-box">
             <span class="stat-n">15<span style="font-size:18px;opacity:.6">+</span></span>
