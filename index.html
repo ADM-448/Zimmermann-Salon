@@ -1931,21 +1931,19 @@
               <p class="slide-cap-name">Personalidade & Brilho</p>
             </div>
           </div>
-
         </div>
       </div>
-    </div>
 
-    <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">
-      <svg viewBox="0 0 24 24">
-        <polyline points="15 18 9 12 15 6" />
-      </svg>
-    </button>
-    <button class="car-btn car-next" id="carNext" aria-label="Próxima">
-      <svg viewBox="0 0 24 24">
-        <polyline points="9 18 15 12 9 6" />
-      </svg>
-    </button>
+      <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="car-btn car-next" id="carNext" aria-label="Próxima">
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
     </div>
 
     <div class="wrap">
@@ -2195,102 +2193,131 @@
          Quando a transição termina e estamos num clone, pulamos
          instantaneamente (sem transição) para o slide real equivalente.
       ============================================================ */
+      /* ============================================================
+         INFINITE LOOP CAROUSEL
+         Move exatamente 1 card inteiro por seta/interação
+      ============================================================ */
       (function initCarousel() {
         const track = document.getElementById('carTrack');
         const dotsEl = document.getElementById('carDots');
         const prevBtn = document.getElementById('carPrev');
         const nextBtn = document.getElementById('carNext');
+        const carWrap = track ? track.closest('.carousel-wrap') : null;
 
-        /* --- Responsive slides per view --- */
-        const pv = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+        if (!track) return;
 
-        /* --- Original slides data --- */
-        const origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
-        const origCount = origSlides.length; // 5
+        const getPerView = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
 
-        /* --- Clone leading & trailing sets --- */
-        let perView = pv();
-        let clonesBefore, clonesAfter;
+        let perView = getPerView();
+        let origSlides = [];
+        let origCount = 0;
+        let totalSlides = 0;
+        let virtualIdx = 0;
+        let isTransitioning = false;
+        let autoTimer = null;
+        const GAP = 16; // espaçamento em pixels entre os cards
 
-        function buildClones() {
-          /* remove old clones */
-          track.querySelectorAll('.carousel-slide.clone').forEach(c => c.remove());
+        function setupCarousel() {
+          /* Remove clones anteriores */
+          track.querySelectorAll('.carousel-slide.clone').forEach(el => el.remove());
 
-          /* clone last `perView` slides → prepend */
-          clonesBefore = [];
+          /* Captura apenas os slides originais do DOM (img1 a img5) */
+          origSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+          origCount = origSlides.length;
+          if (origCount === 0) return;
+
+          perView = getPerView();
+
+          /* Prepara clones da esquerda em ordem sequencial correta */
+          const leadingClones = [];
           for (let i = origCount - perView; i < origCount; i++) {
-            const cl = origSlides[i].cloneNode(true);
+            const cloneIndex = (i + origCount) % origCount;
+            const cl = origSlides[cloneIndex].cloneNode(true);
             cl.classList.add('clone');
-            track.insertBefore(cl, track.firstChild);
-            clonesBefore.unshift(cl);
+            leadingClones.push(cl);
           }
+          leadingClones.reverse().forEach(cl => {
+            track.insertBefore(cl, track.firstChild);
+          });
 
-          /* clone first `perView` slides → append */
-          clonesAfter = [];
+          /* Prepara clones da direita */
           for (let i = 0; i < perView; i++) {
-            const cl = origSlides[i].cloneNode(true);
+            const cl = origSlides[i % origCount].cloneNode(true);
             cl.classList.add('clone');
             track.appendChild(cl);
-            clonesAfter.push(cl);
           }
+
+          const allSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+          totalSlides = allSlides.length;
+
+          /* Calcula a largura exata em pixels para cada slide caber perfeitamente no container */
+          const wrapWidth = carWrap ? carWrap.clientWidth : track.clientWidth;
+          const singleSlideWidth = (wrapWidth - (perView - 1) * GAP) / perView;
+
+          track.style.gap = `${GAP}px`;
+
+          allSlides.forEach(s => {
+            s.style.flex = `0 0 ${singleSlideWidth}px`;
+            s.style.width = `${singleSlideWidth}px`;
+            s.style.maxWidth = `${singleSlideWidth}px`;
+          });
+
+          virtualIdx = perView;
+          updateTrackPosition(false);
+          buildDots();
         }
 
-        /* --- State --- */
-        /* virtualIdx is index among ALL slides (clones + originals).
-           Starts at `perView` (first real slide after leading clones). */
-        let virtualIdx = perView; // points to first real slide
-        let isTransitioning = false;
-        let autoTimer;
-
-        /* --- Set slide widths --- */
-        function setWidths() {
-          const allSlides = track.querySelectorAll('.carousel-slide');
-          allSlides.forEach(s => { s.style.flex = `0 0 calc(100% / ${perView})`; });
+        function getSingleStep() {
+          const wrapWidth = carWrap ? carWrap.clientWidth : track.clientWidth;
+          const singleSlideWidth = (wrapWidth - (perView - 1) * GAP) / perView;
+          return singleSlideWidth + GAP;
         }
 
-        /* --- Jump without animation (force reflow to avoid flash) --- */
-        function jumpTo(idx) {
-          track.style.transition = 'none';
-          virtualIdx = idx;
-          track.style.transform = `translateX(-${(virtualIdx / (origCount + perView * 2)) * 100}%)`;
-          /* Force the browser to apply the above before any next transition.
-             Reading offsetWidth triggers a synchronous reflow. */
-          void track.offsetWidth;
+        function getRealIndex() {
+          if (origCount === 0) return 0;
+          return ((virtualIdx - perView) % origCount + origCount) % origCount;
         }
 
-        /* --- Animate to virtual index --- */
-        function slideTo(idx) {
-          if (isTransitioning) return;
-          isTransitioning = true;
-          virtualIdx = idx;
-          track.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
-          track.style.transform = `translateX(-${(virtualIdx / (origCount + perView * 2)) * 100}%)`;
+        function updateTrackPosition(animate = true) {
+          if (animate) {
+            track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+          } else {
+            track.style.transition = 'none';
+          }
+          const step = getSingleStep();
+          const offsetPx = virtualIdx * step;
+          track.style.transform = `translate3d(-${offsetPx}px, 0, 0)`;
+          if (!animate) {
+            void track.offsetWidth;
+          }
           updateDots();
         }
 
-        /* --- After transition: check if on a clone → jump to real --- */
+        function slideTo(targetIdx) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          virtualIdx = targetIdx;
+          updateTrackPosition(true);
+        }
+
         track.addEventListener('transitionend', () => {
           isTransitioning = false;
-          // landed on leading clones (before originals)
           if (virtualIdx < perView) {
-            jumpTo(virtualIdx + origCount);
-          }
-          // landed on trailing clones (after originals)
-          else if (virtualIdx >= perView + origCount) {
-            jumpTo(virtualIdx - origCount);
+            virtualIdx = virtualIdx + origCount;
+            updateTrackPosition(false);
+          } else if (virtualIdx >= perView + origCount) {
+            virtualIdx = virtualIdx - origCount;
+            updateTrackPosition(false);
           }
         });
 
-        /* --- Real index from virtual (0-based among originals) --- */
-        const realIdx = () => ((virtualIdx - perView) % origCount + origCount) % origCount;
-
-        /* --- Dots --- */
         function buildDots() {
+          if (!dotsEl) return;
           dotsEl.innerHTML = '';
           for (let i = 0; i < origCount; i++) {
             const d = document.createElement('button');
-            d.className = 'car-dot' + (i === realIdx() ? ' active' : '');
-            d.setAttribute('aria-label', 'Slide ' + (i + 1));
+            d.className = 'car-dot' + (i === getRealIndex() ? ' active' : '');
+            d.setAttribute('aria-label', `Slide ${i + 1}`);
             d.addEventListener('click', () => {
               if (!isTransitioning) slideTo(perView + i);
             });
@@ -2299,57 +2326,68 @@
         }
 
         function updateDots() {
-          const ri = realIdx();
-          dotsEl.querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('active', i === ri));
+          if (!dotsEl) return;
+          const ri = getRealIndex();
+          const dots = dotsEl.querySelectorAll('.car-dot');
+          dots.forEach((d, i) => d.classList.toggle('active', i === ri));
         }
 
-        /* --- Controls --- */
-        prevBtn.addEventListener('click', () => { if (!isTransitioning) slideTo(virtualIdx - 1); });
-        nextBtn.addEventListener('click', () => { if (!isTransitioning) slideTo(virtualIdx + 1); });
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isTransitioning) slideTo(virtualIdx - 1);
+          });
+        }
 
-        /* --- Touch swipe --- */
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!isTransitioning) slideTo(virtualIdx + 1);
+          });
+        }
+
         let touchStartX = 0;
         track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
         track.addEventListener('touchend', e => {
           const dx = e.changedTouches[0].clientX - touchStartX;
-          if (Math.abs(dx) > 44 && !isTransitioning) slideTo(dx < 0 ? virtualIdx + 1 : virtualIdx - 1);
+          if (Math.abs(dx) > 40 && !isTransitioning) {
+            slideTo(dx < 0 ? virtualIdx + 1 : virtualIdx - 1);
+          }
         });
 
-        /* --- Keyboard --- */
         document.addEventListener('keydown', e => {
+          if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
           if (e.key === 'ArrowLeft' && !isTransitioning) slideTo(virtualIdx - 1);
           if (e.key === 'ArrowRight' && !isTransitioning) slideTo(virtualIdx + 1);
         });
 
-        /* --- Auto-advance --- */
         const startAuto = () => {
-          clearInterval(autoTimer);
-          autoTimer = setInterval(() => { if (!isTransitioning) slideTo(virtualIdx + 1); }, 5000);
+          stopAuto();
+          autoTimer = setInterval(() => {
+            if (!isTransitioning) slideTo(virtualIdx + 1);
+          }, 5000);
         };
-        const stopAuto = () => clearInterval(autoTimer);
 
-        const carWrap = track.closest('.carousel-wrap');
-        carWrap.addEventListener('mouseenter', stopAuto);
-        carWrap.addEventListener('mouseleave', startAuto);
+        const stopAuto = () => {
+          if (autoTimer) clearInterval(autoTimer);
+        };
 
-        /* --- Init & resize --- */
-        function init() {
-          perView = pv();
-          buildClones();
-          setWidths();
-          virtualIdx = perView; // reset to first real slide
-          jumpTo(perView);
-          buildDots();
-          startAuto();
+        if (carWrap) {
+          carWrap.addEventListener('mouseenter', stopAuto);
+          carWrap.addEventListener('mouseleave', startAuto);
         }
 
-        let resizeTimer;
+        let resizeTimer = null;
         window.addEventListener('resize', () => {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(init, 200);
+          resizeTimer = setTimeout(() => {
+            setupCarousel();
+            startAuto();
+          }, 150);
         });
 
-        init();
+        setupCarousel();
+        startAuto();
       })();
 
     })();
