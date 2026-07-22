@@ -583,30 +583,36 @@
    TECHNIQUES
 ============================================================ */
     .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--gold-lo);
-      border-radius: 2px;
-      overflow: hidden;
-      background: var(--gold-lo);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      background: transparent;
+      border: none;
     }
 
     .tech-card {
+      flex: 0 0 calc((100% - 48px) / 3);
+      max-width: calc((100% - 48px) / 3);
       background: var(--surface);
+      border: 1px solid var(--gold-bd);
+      border-radius: 4px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: background var(--r);
+      transition: background var(--r), border-color var(--r), transform var(--r);
       position: relative;
     }
 
     .tech-card:hover {
       background: #191818;
+      border-color: var(--gold);
+      transform: translateY(-4px);
     }
 
     .tech-img-box {
       position: relative;
-      height: 280px;
+      height: 340px;
       overflow: hidden;
     }
 
@@ -614,9 +620,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center center;
       transition: transform .7s ease, filter .5s ease;
-      filter: grayscale(12%) brightness(.88);
+      filter: brightness(.95);
     }
 
     .tech-card:hover .tech-img-box img {
@@ -1473,8 +1479,9 @@
    RESPONSIVE
 ============================================================ */
     @media(max-width:1024px) {
-      .tech-grid {
-        grid-template-columns: 1fr;
+      .tech-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+        max-width: calc((100% - 24px) / 2);
       }
 
       .about-layout {
@@ -1506,6 +1513,11 @@
     }
 
     @media(max-width:768px) {
+      .tech-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
       .nav-list {
         display: none;
       }
@@ -1736,79 +1748,112 @@
         <!-- 01. Ponto Americano -->
         <div class="tech-card" id="card-ponto-americano">
           <div class="tech-img-box">
-            <img src="./img/img5.jpeg" alt="Técnica Ponto Americano - Zimmermann Salon Maringá" loading="lazy">
+            <img src="./img/Ponto Americano.jpeg" alt="Técnica Ponto Americano Costurado - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">01</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Volume &
-                Comprimento</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Firmeza & Volume</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Ponto Americano</h3>
-            <p class="tech-role">Versátil · Confortável · Acabamento Impecável</p>
-            <p class="tech-intro-text">Uma técnica versátil e confortável, indicada para quem busca volume e comprimento
-              com excelente acabamento.</p>
+            <p class="tech-role">Costurado · Firmeza · Distribuição de Peso</p>
+            <p class="tech-intro-text">Técnica tradicional e segura com tela costurada, garantindo firmeza, conforto e excelente distribuição do peso dos fios.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
-              <li><strong>Convencional Costurado</strong> – Tela costurada de forma segura, proporcionando firmeza e um
-                resultado natural.</li>
-              <li><strong>Ponto slim (Microlink)</strong> – Tela fixada com microlinks, sem costura direta nos fios,
-                oferecendo mais leveza e praticidade na manutenção.</li>
-              <li><strong>Nó Italiano</strong> – Método de fixação da tela utilizando nós estratégicos, garantindo
-                excelente distribuição do peso e um acabamento discreto.</li>
+              <li><strong>Fixação segura</strong> com telas costuradas estrategicamente.</li>
+              <li><strong>Excelente acabamento</strong> natural e discreto.</li>
+              <li><strong>Distribuição equilibrada</strong> do peso dos fios.</li>
             </ul>
             <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Ponto%20Americano."
               target="_blank" rel="noopener" class="btn-card" id="cta-ponto-americano">Orçamento WhatsApp</a>
           </div>
         </div>
 
-        <!-- 02. Queratina -->
-        <div class="tech-card" id="card-queratina">
+        <!-- 02. Ponto Slim -->
+        <div class="tech-card" id="card-ponto-slim">
           <div class="tech-img-box">
-            <img src="./img/img4.jpeg" alt="Mega Hair Queratina - Zimmermann Salon Maringá" loading="lazy">
+            <img src="./img/Ponto slim.jpeg" alt="Técnica Ponto Slim Microlink - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">02</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Efeito Extremamente
-                Natural</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Tecnologia & Leveza</span></div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Ponto Slim</h3>
+            <p class="tech-role">Microlink · Leveza · Manutenção Prática</p>
+            <p class="tech-intro-text">Fixação moderna com microlinks ultrafinos, sem costura direta nos fios, oferecendo máxima leveza e praticidade.</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li><strong>Sem costura direta</strong> na raiz dos fios de cabelo.</li>
+              <li><strong>Telas ultrafinas</strong> para maior discrição.</li>
+              <li><strong>Manutenção rápida</strong> e muito confortável.</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Ponto%20Slim."
+              target="_blank" rel="noopener" class="btn-card" id="cta-ponto-slim">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- 03. Queratina -->
+        <div class="tech-card" id="card-queratina">
+          <div class="tech-img-box">
+            <img src="./img/Queratina.jpeg" alt="Mega Hair Queratina Microcápsulas - Zimmermann Salon" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">03</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Efeito Extremamente Natural</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Queratina</h3>
-            <p class="tech-role">Liberdade Total · Acabamento Discreto</p>
-            <p class="tech-intro-text">Ideal para quem deseja liberdade para prender o cabelo e um efeito extremamente
-              natural.</p>
+            <p class="tech-role">Micro & Nanocápsulas · Liberdade Total</p>
+            <p class="tech-intro-text">Mechas individuais com cápsulas de queratina reduzidas. Ideal para quem deseja liberdade para prender o cabelo com efeito 100% natural.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
-              <li><strong>Microcápsulas</strong> – Mechas aplicadas com cápsulas de queratina de tamanho reduzido,
-                proporcionando conforto e naturalidade.</li>
-              <li><strong>Nanocápsulas</strong> – Cápsulas ultrafinas, praticamente imperceptíveis, indicadas para
-                cabelos finos e para quem busca máxima discrição.</li>
-              <li><strong>Fio de LED (Acabamento Frontal)</strong> – Aplicação de cápsulas extremamente delicadas na
-                região frontal, criando uma linha de crescimento natural e acabamento impecável.</li>
+              <li><strong>Microcápsulas</strong> confortáveis e de tamanho reduzido.</li>
+              <li><strong>Nanocápsulas</strong> ultrafinas para cabelos delicados.</li>
+              <li><strong>Liberdade total</strong> para penteados e rabo de cavalo.</li>
             </ul>
             <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20em%20Queratina."
               target="_blank" rel="noopener" class="btn-card" id="cta-queratina">Orçamento WhatsApp</a>
           </div>
         </div>
 
-        <!-- 03. Invisible (Fita Adesiva) -->
+        <!-- 04. Fios de LED -->
+        <div class="tech-card" id="card-fio-led">
+          <div class="tech-img-box">
+            <img src="./img/Fio Led.jpeg" alt="Tecnologia Fios de LED Frontal - Zimmermann Salon" loading="lazy">
+            <div class="tech-shade"></div>
+            <span class="tech-num">04</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Acabamento Impecável</span></div>
+          </div>
+          <div class="tech-body">
+            <h3 class="tech-name">Fios de LED</h3>
+            <p class="tech-role">Acabamento Frontal · Discrição Absoluta</p>
+            <p class="tech-intro-text">Aplicação de altíssima precisão com tecnologia LED para o topo e região frontal, criando uma linha de crescimento invisível.</p>
+            <div class="tech-hr"></div>
+            <ul class="tech-list">
+              <li><strong>Cápsulas hiperdelicadas</strong> para a região frontal.</li>
+              <li><strong>Linha de nascimento natural</strong> imperceptível.</li>
+              <li><strong>Tecnologia de ponta</strong> para máximo acabamento.</li>
+            </ul>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20a%20técnica%20Fios%20de%20LED."
+              target="_blank" rel="noopener" class="btn-card" id="cta-fio-led">Orçamento WhatsApp</a>
+          </div>
+        </div>
+
+        <!-- 05. Invisible (Fita Adesiva) -->
         <div class="tech-card" id="card-fita">
           <div class="tech-img-box">
-            <img src="./img/img7.jpeg" alt="Mega Hair Invisible Fita Adesiva - Zimmermann Salon Maringá" loading="lazy">
+            <img src="./img/Mega hair.jpeg" alt="Mega Hair Invisible Fita Adesiva - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
-            <span class="tech-num">03</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Praticidade &
-                Leveza</span></div>
+            <span class="tech-num">05</span>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Praticidade & Leveza</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Invisible (Fita Adesiva)</h3>
             <p class="tech-role">Telas Ultrafinas · Aplicação Rápida</p>
-            <p class="tech-intro-text">Técnica com telas ultrafinas de fita adesiva que ficam praticamente invisíveis
-              entre os fios.</p>
+            <p class="tech-intro-text">Técnica com telas ultrafinas de fita adesiva que se fundem perfeitamente aos fios com caimento leve e natural.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
-              <li><strong>Aplicação rápida</strong> e prática para a sua rotina diária.</li>
-              <li><strong>Excelente conforto</strong> e leveza no uso diário.</li>
-              <li><strong>Resultado leve e natural</strong>, com ótima mobilidade dos fios.</li>
-              <li><strong>Ideal para praticidade</strong> nas manutenções periódicas.</li>
+              <li><strong>Aplicação rápida</strong> e prática para o dia a dia.</li>
+              <li><strong>Telas ultrafinas</strong> imperceptíveis ao toque.</li>
+              <li><strong>Agilidade</strong> nas manutenções periódicas.</li>
             </ul>
             <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20Mega%20Hair%20Invisible%20(Fita%20Adesiva)."
               target="_blank" rel="noopener" class="btn-card" id="cta-fita">Orçamento WhatsApp</a>
@@ -1819,57 +1864,51 @@
     </div>
   </section>
 
-  <!-- COMO FUNCIONAM AS TÉCNICAS -->
+  <!-- COMO FUNCIONAM AS TÉCNICAS (Nossa Filosofia) -->
   <section class="sec how-section" id="como-funciona">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">Filosofia & Avaliação Personalizada</span>
-        <h2 class="sec-title">Como funcionam <em>nossas técnicas</em></h2>
+        <span class="eyebrow">Filosofia & Transformação</span>
+        <h2 class="sec-title">Muito além do <em>Mega Hair</em></h2>
         <div class="rule cx"></div>
       </div>
 
       <div class="how-layout">
-        <!-- Visual Column (Imagem Zimmermann em Ação) -->
+        <!-- Visual Column -->
         <div class="how-img-box reveal d1">
-          <img src="img/IMG_1262.JPEG" alt="Especialista Zimmermann Salon em ação aplicando Mega Hair" loading="lazy">
+          <img src="img/Cópia de Maiko-139.jpeg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo" loading="lazy">
           <div class="how-img-badge">
             <div class="how-img-badge-ico">✦</div>
             <div>
-              <p class="how-img-badge-title">Zimmermann Salon</p>
-              <p class="how-img-badge-sub">Excelência, Segurança & Cuidado Capilar</p>
+              <p class="how-img-badge-title">Mayko Zimmermann</p>
+              <p class="how-img-badge-sub">Fundador & Especialista em Visagismo</p>
             </div>
           </div>
         </div>
 
         <!-- Content Column -->
         <div class="how-text reveal d2">
+          <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.6vw, 30px); color: var(--gold-hi); font-weight: 500; line-height: 1.35; margin-bottom: 22px;">
+            Muito além do Mega Hair: transformamos autoestima e revelamos a sua melhor versão.
+          </h3>
+
           <p class="how-p">
-            No <strong>Zimmermann Salon</strong>, acreditamos que cada cliente merece uma solução personalizada. Por
-            isso, trabalhamos com diversas técnicas de mega hair, permitindo criar transformações que vão dos ajustes
-            mais sutis às mudanças mais expressivas.
-          </p>
-          <p class="how-p">
-            Nossos métodos possibilitam aumentar o comprimento, proporcionar mais volume, corrigir diferenças de
-            densidade, harmonizar a cor dos fios, preencher áreas com menor quantidade de cabelo e criar um resultado
-            totalmente natural, sempre respeitando as características e a saúde dos fios.
+            No <strong>Zimmermann Salon</strong>, cada atendimento é pensado para valorizar a beleza natural, respeitando o estilo, a personalidade e as necessidades de cada cliente. Somos especialistas em Mega Hair de alto padrão e trabalhamos com diferentes técnicas para oferecer resultados discretos, confortáveis e naturais.
           </p>
 
-          <div class="how-highlight-box">
-            "Durante a avaliação, analisamos cuidadosamente a estrutura capilar, o estilo de vida e os objetivos de cada
-            cliente para indicar a técnica mais adequada. Entre elas estão o <strong>Ponto Americano</strong>,
-            <strong>Ponto slim</strong>, <strong>Nó Italiano</strong>, <strong>Microcápsulas de Queratina</strong>,
-            <strong>Nanocápsulas</strong>, <strong>Fio de LED</strong> e a técnica <strong>Invisible (Fita
-              Adesiva)</strong>."
+          <p class="how-p">
+            Mais do que mechas mechas que alongam o cabelo, acreditamos que cada transformação representa um novo capítulo de confiança, elegância e bem-estar. Nosso compromisso é proporcionar uma experiência acolhedora, com excelência técnica, atenção aos detalhes e resultados que fazem você se sentir ainda mais segura e feliz.
+          </p>
+
+          <div class="how-highlight-box" style="border-left: 3px solid var(--gold); padding: 18px 22px; background: rgba(201, 168, 106, 0.06); margin: 26px 0 20px; border-radius: 0 4px 4px 0;">
+            <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--white); line-height: 1.6; margin-bottom: 10px;">
+              “A verdadeira transformação começa quando você se reconhece no espelho e volta a sorrir para si mesma.”
+            </p>
+            <span style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">— Mayko Zimmermann</span>
           </div>
 
-          <p class="how-p">
-            Trabalhamos apenas com materiais de alta qualidade e métodos que proporcionam conforto, segurança,
-            durabilidade e um acabamento praticamente imperceptível. Nosso compromisso é oferecer um mega hair
-            sofisticado, leve e personalizado, para que o resultado seja tão natural que pareça fazer parte de você.
-          </p>
-
-          <div style="margin-top: 32px;">
-            <a href="https://wa.me/5544997739398?text=Olá,%20li%20sobre%20as%20técnicas%20no%20site%20e%20gostaria%20de%20agendar%20minha%20avaliação%20personalizada."
+          <div style="margin-top: 28px;">
+            <a href="https://wa.me/5544997739398?text=Olá,%20li%20sobre%20a%20filosofia%20do%20Zimmermann%20Salon%20e%20gostaria%20de%20agendar%20minha%20avaliação."
               target="_blank" rel="noopener" class="btn btn-gold" id="how-cta">
               <svg class="wa-ico" viewBox="0 0 24 24">
                 <path
@@ -1897,38 +1936,73 @@
       <div class="carousel-wrap" id="carWrap">
         <div class="carousel-track" id="carTrack">
           <div class="carousel-slide">
-            <img src="img/img1.jpeg" alt="Mega Hair loiro ondulado - resultado natural Zimmermann Salon" loading="lazy">
+            <img src="img/resultado_1.jpeg" alt="Mega Hair Loiro Champagne - Zimmermann Salon Maringá" loading="lazy">
             <div class="slide-cap">
               <p class="slide-cap-tag">Loiro Champagne</p>
               <p class="slide-cap-name">Volume & Comprimento</p>
             </div>
           </div>
           <div class="carousel-slide">
-            <img src="img/img2.jpeg" alt="Mega Hair loiro platinado - Zimmermann Salon Maringá" loading="lazy">
+            <img src="img/resultado_2.jpeg" alt="Mega Hair Loiro Platinado - Zimmermann Salon Maringá" loading="lazy">
             <div class="slide-cap">
               <p class="slide-cap-tag">Loiro Platinado</p>
-              <p class="slide-cap-name">Estilo & Elegância</p>
+              <p class="slide-cap-name">Liso Perfeito & Brilho</p>
             </div>
           </div>
           <div class="carousel-slide">
-            <img src="img/img3.jpeg" alt="Mega Hair morena com luzes - técnica natural Zimmermann" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Morena Iluminada</p>
-              <p class="slide-cap-name">Naturalidade Total</p>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <img src="img/img4.jpeg" alt="Mega Hair loiro solar - Zimmermann Salon resultado premium" loading="lazy">
+            <img src="img/resultado_3.jpeg" alt="Mega Hair Loiro Solar - Zimmermann Salon Maringá" loading="lazy">
             <div class="slide-cap">
               <p class="slide-cap-tag">Loiro Solar</p>
-              <p class="slide-cap-name">Frescor & Leveza</p>
+              <p class="slide-cap-name">Movimento & Naturalidade</p>
             </div>
           </div>
           <div class="carousel-slide">
-            <img src="img/img5.jpeg" alt="Mega Hair ruivo intenso - Zimmermann Salon Maringá" loading="lazy">
+            <img src="img/resultado_4.jpeg" alt="Mega Hair Cacheado - Zimmermann Salon Maringá" loading="lazy">
             <div class="slide-cap">
-              <p class="slide-cap-tag">Ruivo Intenso</p>
-              <p class="slide-cap-name">Personalidade & Brilho</p>
+              <p class="slide-cap-tag">Cachos & Volume</p>
+              <p class="slide-cap-name">Definição Impecável</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_5.jpeg" alt="Mega Hair Loiro Iluminado - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Loiro Iluminado</p>
+              <p class="slide-cap-name">Ondas Glamour</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_6.jpeg" alt="Mega Hair Morena Iluminada - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Morena Iluminada</p>
+              <p class="slide-cap-name">Longo Deslumbrante</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_7.jpeg" alt="Mega Hair Morena Caramelo - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Morena Caramelo</p>
+              <p class="slide-cap-name">Harmonia & Caimento</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_8.jpeg" alt="Mega Hair Ruivo Acobreado - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Ruivo Acobreado</p>
+              <p class="slide-cap-name">Cor & Densidade</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_9.jpeg" alt="Mega Hair Castanho Iluminado - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Castanho Iluminado</p>
+              <p class="slide-cap-name">Comprimento Sublime</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="img/resultado_10.jpeg" alt="Mega Hair Ruivo Vibrante - Zimmermann Salon Maringá" loading="lazy">
+            <div class="slide-cap">
+              <p class="slide-cap-tag">Ruivo Vibrante</p>
+              <p class="slide-cap-name">Personalidade & Sofisticação</p>
             </div>
           </div>
         </div>
@@ -1998,7 +2072,7 @@
         </div>
         <div class="about-media reveal d2">
           <div class="med-img">
-            <img src="img/IMG_1261.JPEG" alt="Especialista Zimmermann Salon - Referência em Mega Hair Maringá"
+            <img src="img/Cópia de Maiko-139.jpeg" alt="Especialista Zimmermann Salon - Referência em Mega Hair Maringá"
               loading="lazy">
           </div>
           <div class="stat-box">
@@ -2298,6 +2372,7 @@
           isTransitioning = true;
           virtualIdx = targetIdx;
           updateTrackPosition(true);
+          setTimeout(() => { isTransitioning = false; }, 550);
         }
 
         track.addEventListener('transitionend', () => {
@@ -2319,7 +2394,10 @@
             d.className = 'car-dot' + (i === getRealIndex() ? ' active' : '');
             d.setAttribute('aria-label', `Slide ${i + 1}`);
             d.addEventListener('click', () => {
-              if (!isTransitioning) slideTo(perView + i);
+              if (!isTransitioning) {
+                slideTo(perView + i);
+                startAuto();
+              }
             });
             dotsEl.appendChild(d);
           }
@@ -2335,14 +2413,20 @@
         if (prevBtn) {
           prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (!isTransitioning) slideTo(virtualIdx - 1);
+            if (!isTransitioning) {
+              slideTo(virtualIdx - 1);
+              startAuto();
+            }
           });
         }
 
         if (nextBtn) {
           nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            if (!isTransitioning) slideTo(virtualIdx + 1);
+            if (!isTransitioning) {
+              slideTo(virtualIdx + 1);
+              startAuto();
+            }
           });
         }
 
@@ -2352,30 +2436,32 @@
           const dx = e.changedTouches[0].clientX - touchStartX;
           if (Math.abs(dx) > 40 && !isTransitioning) {
             slideTo(dx < 0 ? virtualIdx + 1 : virtualIdx - 1);
+            startAuto();
           }
         });
 
         document.addEventListener('keydown', e => {
           if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-          if (e.key === 'ArrowLeft' && !isTransitioning) slideTo(virtualIdx - 1);
-          if (e.key === 'ArrowRight' && !isTransitioning) slideTo(virtualIdx + 1);
+          if (e.key === 'ArrowLeft' && !isTransitioning) {
+            slideTo(virtualIdx - 1);
+            startAuto();
+          }
+          if (e.key === 'ArrowRight' && !isTransitioning) {
+            slideTo(virtualIdx + 1);
+            startAuto();
+          }
         });
 
         const startAuto = () => {
           stopAuto();
           autoTimer = setInterval(() => {
-            if (!isTransitioning) slideTo(virtualIdx + 1);
-          }, 5000);
+            slideTo(virtualIdx + 1);
+          }, 3500);
         };
 
         const stopAuto = () => {
           if (autoTimer) clearInterval(autoTimer);
         };
-
-        if (carWrap) {
-          carWrap.addEventListener('mouseenter', stopAuto);
-          carWrap.addEventListener('mouseleave', startAuto);
-        }
 
         let resizeTimer = null;
         window.addEventListener('resize', () => {
