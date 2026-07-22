@@ -612,22 +612,24 @@
 
     .tech-img-box {
       position: relative;
-      height: 340px;
+      height: 360px;
       overflow: hidden;
+      background: #0d0c0c;
     }
 
     .tech-img-box img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center center;
       transition: transform .7s ease, filter .5s ease;
       filter: brightness(.95);
+      background: #0d0c0c;
     }
 
     .tech-card:hover .tech-img-box img {
-      transform: scale(1.07);
-      filter: grayscale(0%) brightness(.95);
+      transform: scale(1.03);
+      filter: brightness(1);
     }
 
     .tech-shade {
@@ -744,6 +746,148 @@
       color: var(--gold-hi);
       font-weight: 600;
     }
+
+    /* ============================================================
+       SERVICES (Nossos Serviços)
+    ============================================================ */
+    .serv-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .serv-card {
+      background: var(--surface);
+      border: 1px solid var(--gold-bd);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--r), transform var(--r), box-shadow var(--r);
+    }
+
+    .serv-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .serv-img-box {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: #0d0c0c;
+    }
+
+    .serv-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: transform 0.6s ease;
+      filter: brightness(0.92);
+    }
+
+    .serv-card:hover .serv-img-box img {
+      transform: scale(1.05);
+      filter: brightness(1);
+    }
+
+    .serv-ico-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: rgba(8, 7, 7, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 15px;
+    }
+
+    .serv-body {
+      padding: 22px 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .serv-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .serv-desc {
+      font-size: 12.5px;
+      color: rgba(200, 195, 190, 0.82);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .serv-link {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--r);
+    }
+
+    .serv-link:hover {
+      color: var(--gold-hi);
+    }
+
+    /* ============================================================
+       FIXED GALLERY GRID (Resultados que falam por si)
+    ============================================================ */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .result-card {
+      background: #0d0c0c;
+      border: 1px solid var(--gold-bd);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color var(--r), transform var(--r);
+    }
+
+    .result-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .result-card img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .result-card:hover img {
+      transform: scale(1.04);
+    }
+
 
     /* ============================================================
    HOW IT WORKS SECTION (Como funcionam as técnicas)
@@ -867,21 +1011,24 @@
       flex: 0 0 calc(100%/3);
       position: relative;
       overflow: hidden;
+      background: #0d0c0c;
+      border-radius: 4px;
     }
 
     .carousel-slide img {
       width: 100%;
-      height: 460px;
-      object-fit: cover;
-      object-position: center top;
+      height: clamp(520px, 72vh, 640px);
+      object-fit: contain;
+      object-position: center center;
       display: block;
       transition: transform .6s ease, filter .4s ease;
-      filter: grayscale(10%);
+      filter: brightness(.95);
+      background: #0d0c0c;
     }
 
     .carousel-slide:hover img {
-      transform: scale(1.04);
-      filter: grayscale(0%);
+      transform: scale(1.03);
+      filter: brightness(1);
     }
 
     .slide-cap {
@@ -889,16 +1036,28 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 22px 22px 20px;
-      background: linear-gradient(to top, rgba(8, 7, 7, .85) 0%, transparent 100%);
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity .4s ease, transform .4s ease;
-    }
-
-    .carousel-slide:hover .slide-cap {
+      padding: 20px 22px 18px;
+      background: linear-gradient(to top, rgba(8, 7, 7, .94) 0%, rgba(8, 7, 7, .65) 70%, transparent 100%);
       opacity: 1;
       transform: translateY(0);
+      transition: opacity .4s ease, transform .4s ease;
+      pointer-events: none;
+    }
+
+    .slide-cap-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .slide-cap-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--white);
+      font-weight: 500;
     }
 
     .slide-cap-tag {
@@ -1479,6 +1638,14 @@
    RESPONSIVE
 ============================================================ */
     @media(max-width:1024px) {
+      .serv-grid, .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .course-box {
+        grid-template-columns: 1fr;
+      }
+
       .tech-card {
         flex: 0 0 calc((100% - 24px) / 2);
         max-width: calc((100% - 24px) / 2);
@@ -1513,6 +1680,10 @@
     }
 
     @media(max-width:768px) {
+      .serv-grid, .results-grid {
+        grid-template-columns: 1fr;
+      }
+
       .tech-card {
         flex: 0 0 100%;
         max-width: 100%;
@@ -1663,6 +1834,7 @@
       <div class="nav-right">
         <ul class="nav-list" id="nl">
           <li><a href="#tecnicas">Técnicas</a></li>
+          <li><a href="#servicos">Serviços</a></li>
           <li><a href="#resultados">Resultados</a></li>
           <li><a href="#sobre">O Salão</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
@@ -1708,7 +1880,6 @@
         <img src="img/Logo.PNG" alt="Zimmermann Salon Logo" class="hero-logo-img">
       </div>
     </div>
-    <div class="scroll-cue"><span>Rolar</span><i></i></div>
   </section>
 
   <!-- PILLARS -->
@@ -1922,107 +2093,92 @@
     </div>
   </section>
 
-  <!-- CAROUSEL — RESULTS -->
-  <section class="carousel-section" id="resultados">
+  <!-- NOSSOS SERVIÇOS (Além do Mega Hair) -->
+  <section class="sec serv-section" id="servicos">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="eyebrow">Transformações Reais</span>
-        <h2 class="sec-title"><em>Cada resultado</em> é <strong>único.</strong></h2>
+        <span class="eyebrow">Excelência em Cuidados Capilares</span>
+        <h2 class="sec-title">Nossos <em>Serviços</em></h2>
         <div class="rule cx"></div>
       </div>
-    </div>
 
-    <div class="wrap" style="position:relative;">
-      <div class="carousel-wrap" id="carWrap">
-        <div class="carousel-track" id="carTrack">
-          <div class="carousel-slide">
-            <img src="img/resultado_1.jpeg" alt="Mega Hair Loiro Champagne - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Loiro Champagne</p>
-              <p class="slide-cap-name">Volume & Comprimento</p>
-            </div>
+      <div class="serv-grid reveal d1">
+        <!-- 01. Mechas -->
+        <div class="serv-card">
+          <div class="serv-img-box">
+            <img src="img/resultado_1.jpeg" alt="Serviço de Mechas - Zimmermann Salon Maringá" loading="lazy">
+            <div class="serv-ico-badge">✦</div>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_2.jpeg" alt="Mega Hair Loiro Platinado - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Loiro Platinado</p>
-              <p class="slide-cap-name">Liso Perfeito & Brilho</p>
-            </div>
+          <div class="serv-body">
+            <h3 class="serv-title">MECHAS</h3>
+            <p class="serv-desc">Técnicas personalizadas para iluminar seu olhar e valorizar sua beleza natural.</p>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Mechas." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_3.jpeg" alt="Mega Hair Loiro Solar - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Loiro Solar</p>
-              <p class="slide-cap-name">Movimento & Naturalidade</p>
-            </div>
+        </div>
+
+        <!-- 02. Coloração -->
+        <div class="serv-card">
+          <div class="serv-img-box">
+            <img src="img/resultado_8.jpeg" alt="Serviço de Coloração - Zimmermann Salon Maringá" loading="lazy">
+            <div class="serv-ico-badge">💧</div>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_4.jpeg" alt="Mega Hair Cacheado - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Cachos & Volume</p>
-              <p class="slide-cap-name">Definição Impecável</p>
-            </div>
+          <div class="serv-body">
+            <h3 class="serv-title">COLORAÇÃO</h3>
+            <p class="serv-desc">Cores vibrantes, duradouras e sofisticadas para realçar sua essência.</p>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Coloração." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_5.jpeg" alt="Mega Hair Loiro Iluminado - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Loiro Iluminado</p>
-              <p class="slide-cap-name">Ondas Glamour</p>
-            </div>
+        </div>
+
+        <!-- 03. Corte -->
+        <div class="serv-card">
+          <div class="serv-img-box">
+            <img src="img/resultado_3.jpeg" alt="Serviço de Corte - Zimmermann Salon Maringá" loading="lazy">
+            <div class="serv-ico-badge">✂</div>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_6.jpeg" alt="Mega Hair Morena Iluminada - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Morena Iluminada</p>
-              <p class="slide-cap-name">Longo Deslumbrante</p>
-            </div>
+          <div class="serv-body">
+            <h3 class="serv-title">CORTE</h3>
+            <p class="serv-desc">Cortes que harmonizam com seu estilo e trazem leveza, caimento e movimento.</p>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Corte." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_7.jpeg" alt="Mega Hair Morena Caramelo - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Morena Caramelo</p>
-              <p class="slide-cap-name">Harmonia & Caimento</p>
-            </div>
+        </div>
+
+        <!-- 04. Alisamentos -->
+        <div class="serv-card">
+          <div class="serv-img-box">
+            <img src="img/resultado_2.jpeg" alt="Serviço de Alisamento - Zimmermann Salon Maringá" loading="lazy">
+            <div class="serv-ico-badge">♨</div>
           </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_8.jpeg" alt="Mega Hair Ruivo Acobreado - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Ruivo Acobreado</p>
-              <p class="slide-cap-name">Cor & Densidade</p>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_9.jpeg" alt="Mega Hair Castanho Iluminado - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Castanho Iluminado</p>
-              <p class="slide-cap-name">Comprimento Sublime</p>
-            </div>
-          </div>
-          <div class="carousel-slide">
-            <img src="img/resultado_10.jpeg" alt="Mega Hair Ruivo Vibrante - Zimmermann Salon Maringá" loading="lazy">
-            <div class="slide-cap">
-              <p class="slide-cap-tag">Ruivo Vibrante</p>
-              <p class="slide-cap-name">Personalidade & Sofisticação</p>
-            </div>
+          <div class="serv-body">
+            <h3 class="serv-title">ALISAMENTOS</h3>
+            <p class="serv-desc">Tecnologias que promovem alisamento, redução de volume e brilho intenso.</p>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Alisamentos." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
       </div>
-
-      <button class="car-btn car-prev" id="carPrev" aria-label="Anterior">
-        <svg viewBox="0 0 24 24">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-      <button class="car-btn car-next" id="carNext" aria-label="Próxima">
-        <svg viewBox="0 0 24 24">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
     </div>
+  </section>
 
+  <!-- RESULTS GRID (Resultados que Falam por Si - Fotos Fixas) -->
+  <section class="sec gallery-section" id="resultados">
     <div class="wrap">
-      <div class="car-dots" id="carDots"></div>
-      <div style="text-align:center;margin-top:36px;">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Transformações Reais</span>
+        <h2 class="sec-title">Resultados que <em>Falam por Si</em></h2>
+        <div class="rule cx"></div>
+      </div>
+
+      <div class="results-grid reveal d1">
+        <div class="result-card"><img src="img/resultado_1.jpeg" alt="Mega Hair Zimmermann Salon 1" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_2.jpeg" alt="Mega Hair Zimmermann Salon 2" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_3.jpeg" alt="Mega Hair Zimmermann Salon 3" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_4.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_5.jpeg" alt="Mega Hair Zimmermann Salon 5" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_6.jpeg" alt="Mega Hair Zimmermann Salon 6" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_7.jpeg" alt="Mega Hair Zimmermann Salon 7" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_8.jpeg" alt="Mega Hair Zimmermann Salon 8" loading="lazy"></div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px;">
         <a href="https://wa.me/5544997739398?text=Olá,%20vi%20os%20resultados%20no%20site%20e%20gostaria%20de%20ver%20mais%20fotos%20e%20agendar%20minha%20avaliação."
           target="_blank" rel="noopener" class="btn btn-wire reveal" id="gallery-cta">
           <svg class="wa-ico" viewBox="0 0 24 24">
@@ -2072,7 +2228,7 @@
         </div>
         <div class="about-media reveal d2">
           <div class="med-img">
-            <img src="img/Cópia de Maiko-139.jpeg" alt="Especialista Zimmermann Salon - Referência em Mega Hair Maringá"
+            <img src="img/Cópia de Maiko-139.jpeg" alt="Mayko Zimmermann - Especialista Zimmermann Salon Maringá"
               loading="lazy">
           </div>
           <div class="stat-box">
