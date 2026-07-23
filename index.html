@@ -751,12 +751,15 @@
        SERVICES (Nossos Serviços)
     ============================================================ */
     .serv-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
 
     .serv-card {
+      flex: 0 0 calc((100% - 80px) / 5);
+      max-width: calc((100% - 80px) / 5);
       background: var(--surface);
       border: 1px solid var(--gold-bd);
       border-radius: 6px;
@@ -774,7 +777,7 @@
 
     .serv-img-box {
       position: relative;
-      height: 220px;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
       background: #0d0c0c;
     }
@@ -1639,9 +1642,13 @@
 ============================================================ */
     @media(max-width:1024px) {
 
-      .serv-grid,
       .results-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .serv-card {
+        flex: 0 0 calc((100% - 20px) / 2);
+        max-width: calc((100% - 20px) / 2);
       }
 
       .course-box {
@@ -1683,13 +1690,17 @@
 
     @media(max-width:768px) {
 
-      .serv-grid,
       .results-grid {
         grid-template-columns: 1fr;
       }
 
+      .serv-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
       .serv-img-box {
-        height: 400px;
+        aspect-ratio: 1 / 1;
       }
 
       .tech-card {
@@ -1737,7 +1748,7 @@
         justify-content: center !important;
         margin-top: 32px;
       }
-      
+
       .hero-inner {
         align-items: center;
         text-align: center;
@@ -1756,7 +1767,7 @@
         width: 100%;
         gap: 12px;
       }
-      
+
       .hero-row .btn {
         width: 100%;
         justify-content: center;
@@ -1917,7 +1928,7 @@
       <!-- FOUNDER VISUAL -->
       <div class="hero-logo-side reveal d2" style="justify-content: flex-end;">
         <div class="how-img-box" style="max-width: 440px;">
-          <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo"
+          <img src="img\Cópia de Maiko-137.jpeg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo"
             loading="lazy" style="height: 480px;">
           <div class="how-img-badge">
             <div class="how-img-badge-ico">✦</div>
@@ -2107,8 +2118,7 @@
       <div class="how-layout">
         <!-- Visual Column -->
         <div class="how-img-box reveal d1">
-          <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo"
-            loading="lazy">
+          <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo" loading="lazy">
           <div class="how-img-badge">
             <div class="how-img-badge-ico">✦</div>
             <div>
@@ -2230,6 +2240,22 @@
               target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
+
+        <!-- 05. Make / Penteado -->
+        <div class="serv-card">
+          <div class="serv-img-box">
+            <img src="img/Make.png" alt="Serviço de Make e Penteado - Zimmermann Salon Maringá" loading="lazy"
+              style="object-position: top;">
+            <div class="serv-ico-badge">💄</div>
+          </div>
+          <div class="serv-body">
+            <h3 class="serv-title">MAKE / PENTEADO</h3>
+            <p class="serv-desc">Produção completa de maquiagem e penteado para realçar sua beleza em momentos
+              especiais.</p>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20Make%20e%20Penteado."
+              target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2244,21 +2270,21 @@
       </div>
 
       <div class="results-grid reveal d1">
+        <div class="result-card"><img src="img/natural.png" alt="Mega Hair Zimmermann Salon 8" loading="lazy">
+        </div>
         <div class="result-card"><img src="img/resultado_11.jpeg" alt="Mega Hair Zimmermann Salon 5" loading="lazy">
         </div>
         <div class="result-card"><img src="img/resultado_12.jpeg" alt="Mega Hair Zimmermann Salon 5" loading="lazy">
         </div>
-        <div class="result-card"><img src="img/resultado_6.jpeg" alt="Mega Hair Zimmermann Salon 6" loading="lazy">
+        <div class="result-card"><img src="img/resultado_13.jpeg" alt="Mega Hair Zimmermann Salon 6" loading="lazy">
         </div>
-        <div class="result-card"><img src="img/resultado_7.jpeg" alt="Mega Hair Zimmermann Salon 7" loading="lazy">
-        </div>
-        <div class="result-card"><img src="img/natural.png" alt="Mega Hair Zimmermann Salon 8" loading="lazy">
-        </div>
-        <div class="result-card"><img src="img/natural2.png" alt="Mega Hair Zimmermann Salon 8" loading="lazy">
+        <div class="result-card"><img src="img/resultado_14.jpeg" alt="Mega Hair Zimmermann Salon 7" loading="lazy">
         </div>
         <div class="result-card"><img src="img/resultado_4.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy">
         </div>
         <div class="result-card"><img src="img/resultado_10.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_15.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy">
         </div>
       </div>
 
@@ -2312,7 +2338,7 @@
         </div>
         <div class="about-media reveal d2">
           <div class="med-img">
-            <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista Zimmermann Salon Maringá"
+            <img src="img/Cópia de Maiko-138.jpeg" alt="Mayko Zimmermann - Especialista Zimmermann Salon Maringá"
               loading="lazy">
           </div>
           <div class="stat-box">
@@ -2395,8 +2421,8 @@
         <div class="loc-item">
           <span class="loc-ico">📍</span>
           <div>
-            <strong>Rua Pombal, 346 — Sala 02 · Maringá-PR</strong>
-            Próximo ao Parque do Ingá
+            <strong> Z7 Rua são João, 65 — Sala 2 · Maringá-PR</strong>
+            Próx. Portão lateral da UEM
           </div>
         </div>
         <div class="loc-div"></div>
@@ -2412,7 +2438,6 @@
           <span class="loc-ico">📞</span>
           <div>
             <strong>(44) 99773-9398</strong>
-            WhatsApp disponível
           </div>
         </div>
       </div>
@@ -2450,7 +2475,13 @@
         <div class="foot-col">
           <h4>Contato</h4>
           <ul class="foot-contact">
-            <li><span class="fco">📍</span>Rua Pombal, 346 — Sala 02 — Z3<br>Maringá-PR (Próx. Parque do Ingá)</li>
+            <li>
+              <span class="fco">📍</span>
+              <div>
+                <span style="white-space: nowrap;">Z7 Rua são João, 65 — Sala 2 · Maringá-PR</span> <br>
+                Próx. Portão lateral da UEM
+              </div>
+            </li>
             <li><span class="fco">📞</span><a href="tel:+5544997739398" style="color:inherit;">(44) 99773-9398</a></li>
             <li><span class="fco">✉️</span><a href="mailto:contato@zimmermannsalon.com.br" <li><span class="fco"
                   style="display:inline-flex;align-items:center;justify-content:center;transform:translateY(2px);"><svg
