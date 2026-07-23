@@ -1638,7 +1638,9 @@
    RESPONSIVE
 ============================================================ */
     @media(max-width:1024px) {
-      .serv-grid, .results-grid {
+
+      .serv-grid,
+      .results-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1680,7 +1682,9 @@
     }
 
     @media(max-width:768px) {
-      .serv-grid, .results-grid {
+
+      .serv-grid,
+      .results-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1699,10 +1703,6 @@
 
       .nav-left {
         order: -1;
-      }
-
-      .nav-right {
-        display: none;
       }
 
       .nav-list.open {
@@ -1729,7 +1729,33 @@
       }
 
       .hero-logo-side {
+        display: flex;
+        justify-content: center !important;
+        margin-top: 32px;
+      }
+      
+      .hero-inner {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-label {
+        justify-content: center;
+      }
+
+      .hero-label-line {
         display: none;
+      }
+
+      .hero-row {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      
+      .hero-row .btn {
+        width: 100%;
+        justify-content: center;
       }
 
       .hero::before {
@@ -1743,6 +1769,8 @@
       .pillar {
         border-right: none;
         border-bottom: 1px solid rgba(191, 160, 122, .07);
+        align-items: center;
+        text-align: center;
       }
 
       .test-grid {
@@ -1766,6 +1794,12 @@
 
       .foot-grid {
         grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .foot-contact li {
+        justify-content: center;
       }
 
       .foot-bot {
@@ -1859,7 +1893,8 @@
           <em>Mega Hair.</em>
         </h1>
         <p class="hero-body reveal d2">
-          Transformamos autoestima e revelamos a sua melhor versão. No Zimmermann Salon, cada atendimento é pensado para valorizar a beleza natural, respeitando o seu estilo e personalidade.
+          Transformamos autoestima e revelamos a sua melhor versão. No Zimmermann Salon, cada atendimento é pensado para
+          valorizar a beleza natural, respeitando o seu estilo e personalidade.
         </p>
         <div class="hero-row reveal d3">
           <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20agendar%20minha%20avaliação%20gratuita%20de%20Mega%20Hair."
@@ -1878,7 +1913,8 @@
       <!-- FOUNDER VISUAL -->
       <div class="hero-logo-side reveal d2" style="justify-content: flex-end;">
         <div class="how-img-box" style="max-width: 440px;">
-          <img src="img/Cópia de Maiko-139.jpeg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo" loading="lazy" style="height: 480px;">
+          <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo"
+            loading="lazy" style="height: 480px;">
           <div class="how-img-badge">
             <div class="how-img-badge-ico">✦</div>
             <div>
@@ -1928,15 +1964,18 @@
         <!-- 01. Ponto Americano -->
         <div class="tech-card" id="card-ponto-americano">
           <div class="tech-img-box">
-            <img src="./img/Ponto Americano.jpeg" alt="Técnica Ponto Americano Costurado - Zimmermann Salon" loading="lazy">
+            <img src="./img/Ponto Americano.jpeg" alt="Técnica Ponto Americano Costurado - Zimmermann Salon"
+              loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">01</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Firmeza & Volume</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Firmeza & Volume</span>
+            </div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Ponto Americano</h3>
             <p class="tech-role">Costurado · Firmeza · Distribuição de Peso</p>
-            <p class="tech-intro-text">Técnica tradicional e segura com tela costurada, garantindo firmeza, conforto e excelente distribuição do peso dos fios.</p>
+            <p class="tech-intro-text">Técnica tradicional e segura com tela costurada, garantindo firmeza, conforto e
+              excelente distribuição do peso dos fios.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
               <li><strong>Fixação segura</strong> com telas costuradas estrategicamente.</li>
@@ -1954,12 +1993,14 @@
             <img src="./img/Ponto slim.jpeg" alt="Técnica Ponto Slim Microlink - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">02</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Tecnologia & Leveza</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Tecnologia &
+                Leveza</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Ponto Slim</h3>
             <p class="tech-role">Microlink · Leveza · Manutenção Prática</p>
-            <p class="tech-intro-text">Fixação moderna com microlinks ultrafinos, sem costura direta nos fios, oferecendo máxima leveza e praticidade.</p>
+            <p class="tech-intro-text">Fixação moderna com microlinks ultrafinos, sem costura direta nos fios,
+              oferecendo máxima leveza e praticidade.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
               <li><strong>Sem costura direta</strong> na raiz dos fios de cabelo.</li>
@@ -1977,12 +2018,14 @@
             <img src="./img/Queratina.jpeg" alt="Mega Hair Queratina Microcápsulas - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">03</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Efeito Extremamente Natural</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Efeito Extremamente
+                Natural</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Queratina</h3>
             <p class="tech-role">Micro & Nanocápsulas · Liberdade Total</p>
-            <p class="tech-intro-text">Mechas individuais com cápsulas de queratina reduzidas. Ideal para quem deseja liberdade para prender o cabelo com efeito 100% natural.</p>
+            <p class="tech-intro-text">Mechas individuais com cápsulas de queratina reduzidas. Ideal para quem deseja
+              liberdade para prender o cabelo com efeito 100% natural.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
               <li><strong>Microcápsulas</strong> confortáveis e de tamanho reduzido.</li>
@@ -2000,12 +2043,14 @@
             <img src="./img/Fio Led.jpeg" alt="Tecnologia Fios de LED Frontal - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">04</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Acabamento Impecável</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Acabamento
+                Impecável</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Fios de LED</h3>
             <p class="tech-role">Acabamento Frontal · Discrição Absoluta</p>
-            <p class="tech-intro-text">Aplicação de altíssima precisão com tecnologia LED para o topo e região frontal, criando uma linha de crescimento invisível.</p>
+            <p class="tech-intro-text">Aplicação de altíssima precisão com tecnologia LED para o topo e região frontal,
+              criando uma linha de crescimento invisível.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
               <li><strong>Cápsulas hiperdelicadas</strong> para a região frontal.</li>
@@ -2023,12 +2068,14 @@
             <img src="./img/Mega hair.jpeg" alt="Mega Hair Invisible Fita Adesiva - Zimmermann Salon" loading="lazy">
             <div class="tech-shade"></div>
             <span class="tech-num">05</span>
-            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Praticidade & Leveza</span></div>
+            <div class="tech-pip"><span class="tech-pip-dot"></span><span class="tech-pip-lbl">Praticidade &
+                Leveza</span></div>
           </div>
           <div class="tech-body">
             <h3 class="tech-name">Invisible (Fita Adesiva)</h3>
             <p class="tech-role">Telas Ultrafinas · Aplicação Rápida</p>
-            <p class="tech-intro-text">Técnica com telas ultrafinas de fita adesiva que se fundem perfeitamente aos fios com caimento leve e natural.</p>
+            <p class="tech-intro-text">Técnica com telas ultrafinas de fita adesiva que se fundem perfeitamente aos fios
+              com caimento leve e natural.</p>
             <div class="tech-hr"></div>
             <ul class="tech-list">
               <li><strong>Aplicação rápida</strong> e prática para o dia a dia.</li>
@@ -2056,7 +2103,8 @@
       <div class="how-layout">
         <!-- Visual Column -->
         <div class="how-img-box reveal d1">
-          <img src="img/Cópia de Maiko-139.jpeg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo" loading="lazy">
+          <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista em Mega Hair & Visagismo"
+            loading="lazy">
           <div class="how-img-badge">
             <div class="how-img-badge-ico">✦</div>
             <div>
@@ -2068,23 +2116,34 @@
 
         <!-- Content Column -->
         <div class="how-text reveal d2">
-          <h3 style="font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.6vw, 30px); color: var(--gold-hi); font-weight: 500; line-height: 1.35; margin-bottom: 22px;">
+          <h3
+            style="font-family: 'Playfair Display', serif; font-size: clamp(22px, 2.6vw, 30px); color: var(--gold-hi); font-weight: 500; line-height: 1.35; margin-bottom: 22px;">
             Muito além do Mega Hair: transformamos autoestima e revelamos a sua melhor versão.
           </h3>
 
           <p class="how-p">
-            No <strong>Zimmermann Salon</strong>, cada atendimento é pensado para valorizar a beleza natural, respeitando o estilo, a personalidade e as necessidades de cada cliente. Somos especialistas em Mega Hair de alto padrão e trabalhamos com diferentes técnicas para oferecer resultados discretos, confortáveis e naturais.
+            No <strong>Zimmermann Salon</strong>, cada atendimento é pensado para valorizar a beleza natural,
+            respeitando o estilo, a personalidade e as necessidades de cada cliente. Somos especialistas em Mega Hair de
+            alto padrão e trabalhamos com diferentes técnicas para oferecer resultados discretos, confortáveis e
+            naturais.
           </p>
 
           <p class="how-p">
-            Mais do que mechas mechas que alongam o cabelo, acreditamos que cada transformação representa um novo capítulo de confiança, elegância e bem-estar. Nosso compromisso é proporcionar uma experiência acolhedora, com excelência técnica, atenção aos detalhes e resultados que fazem você se sentir ainda mais segura e feliz.
+            Mais do que mechas mechas que alongam o cabelo, acreditamos que cada transformação representa um novo
+            capítulo de confiança, elegância e bem-estar. Nosso compromisso é proporcionar uma experiência acolhedora,
+            com excelência técnica, atenção aos detalhes e resultados que fazem você se sentir ainda mais segura e
+            feliz.
           </p>
 
-          <div class="how-highlight-box" style="border-left: 3px solid var(--gold); padding: 18px 22px; background: rgba(201, 168, 106, 0.06); margin: 26px 0 20px; border-radius: 0 4px 4px 0;">
-            <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--white); line-height: 1.6; margin-bottom: 10px;">
+          <div class="how-highlight-box"
+            style="border-left: 3px solid var(--gold); padding: 18px 22px; background: rgba(201, 168, 106, 0.06); margin: 26px 0 20px; border-radius: 0 4px 4px 0;">
+            <p
+              style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--white); line-height: 1.6; margin-bottom: 10px;">
               “A verdadeira transformação começa quando você se reconhece no espelho e volta a sorrir para si mesma.”
             </p>
-            <span style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">— Mayko Zimmermann</span>
+            <span
+              style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gold);">—
+              Mayko Zimmermann</span>
           </div>
 
           <div style="margin-top: 28px;">
@@ -2121,7 +2180,8 @@
           <div class="serv-body">
             <h3 class="serv-title">MECHAS</h3>
             <p class="serv-desc">Técnicas personalizadas para iluminar seu olhar e valorizar sua beleza natural.</p>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Mechas." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Mechas."
+              target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
 
@@ -2134,7 +2194,8 @@
           <div class="serv-body">
             <h3 class="serv-title">COLORAÇÃO</h3>
             <p class="serv-desc">Cores vibrantes, duradouras e sofisticadas para realçar sua essência.</p>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Coloração." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Coloração."
+              target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
 
@@ -2147,7 +2208,8 @@
           <div class="serv-body">
             <h3 class="serv-title">CORTE</h3>
             <p class="serv-desc">Cortes que harmonizam com seu estilo e trazem leveza, caimento e movimento.</p>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Corte." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Corte."
+              target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
 
@@ -2160,7 +2222,8 @@
           <div class="serv-body">
             <h3 class="serv-title">ALISAMENTOS</h3>
             <p class="serv-desc">Tecnologias que promovem alisamento, redução de volume e brilho intenso.</p>
-            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Alisamentos." target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
+            <a href="https://wa.me/5544997739398?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20Alisamentos."
+              target="_blank" rel="noopener" class="serv-link">SAIBA MAIS →</a>
           </div>
         </div>
       </div>
@@ -2177,14 +2240,22 @@
       </div>
 
       <div class="results-grid reveal d1">
-        <div class="result-card"><img src="img/resultado_1.jpeg" alt="Mega Hair Zimmermann Salon 1" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_2.jpeg" alt="Mega Hair Zimmermann Salon 2" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_3.jpeg" alt="Mega Hair Zimmermann Salon 3" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_4.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_5.jpeg" alt="Mega Hair Zimmermann Salon 5" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_6.jpeg" alt="Mega Hair Zimmermann Salon 6" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_7.jpeg" alt="Mega Hair Zimmermann Salon 7" loading="lazy"></div>
-        <div class="result-card"><img src="img/resultado_8.jpeg" alt="Mega Hair Zimmermann Salon 8" loading="lazy"></div>
+        <div class="result-card"><img src="img/resultado_1.jpeg" alt="Mega Hair Zimmermann Salon 1" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_2.jpeg" alt="Mega Hair Zimmermann Salon 2" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_3.jpeg" alt="Mega Hair Zimmermann Salon 3" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_4.jpeg" alt="Mega Hair Zimmermann Salon 4" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_5.jpeg" alt="Mega Hair Zimmermann Salon 5" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_6.jpeg" alt="Mega Hair Zimmermann Salon 6" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_7.jpeg" alt="Mega Hair Zimmermann Salon 7" loading="lazy">
+        </div>
+        <div class="result-card"><img src="img/resultado_8.jpeg" alt="Mega Hair Zimmermann Salon 8" loading="lazy">
+        </div>
       </div>
 
       <div style="text-align:center;margin-top:40px;">
@@ -2237,7 +2308,7 @@
         </div>
         <div class="about-media reveal d2">
           <div class="med-img">
-            <img src="img/Cópia de Maiko-139.jpeg" alt="Mayko Zimmermann - Especialista Zimmermann Salon Maringá"
+            <img src="img/mayko-perfil.jpg" alt="Mayko Zimmermann - Especialista Zimmermann Salon Maringá"
               loading="lazy">
           </div>
           <div class="stat-box">
@@ -2377,8 +2448,14 @@
           <ul class="foot-contact">
             <li><span class="fco">📍</span>Rua Pombal, 346 — Sala 02 — Z3<br>Maringá-PR (Próx. Parque do Ingá)</li>
             <li><span class="fco">📞</span><a href="tel:+5544997739398" style="color:inherit;">(44) 99773-9398</a></li>
-            <li><span class="fco">✉️</span><a href="mailto:contato@zimmermannsalon.com.br"
-            <li><span class="fco" style="display:inline-flex;align-items:center;justify-content:center;transform:translateY(2px);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></span><a href="https://www.instagram.com/zimmermannsalon?igsh=MTZjeDdvYzhpanZwaw%3D%3D&utm_source=qr" target="_blank" rel="noopener" style="color:inherit;">@zimmermannsalon</a></li>
+            <li><span class="fco">✉️</span><a href="mailto:contato@zimmermannsalon.com.br" <li><span class="fco"
+                  style="display:inline-flex;align-items:center;justify-content:center;transform:translateY(2px);"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path
+                      d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                  </svg></span><a
+                  href="https://www.instagram.com/zimmermannsalon?igsh=MTZjeDdvYzhpanZwaw%3D%3D&utm_source=qr"
+                  target="_blank" rel="noopener" style="color:inherit;">@zimmermannsalon</a></li>
           </ul>
         </div>
       </div>
